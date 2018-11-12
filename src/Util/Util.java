@@ -1,6 +1,7 @@
 package Util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -52,6 +53,15 @@ public class Util {
         }
 
         return mode;
+    }
+
+    public static double getHash(String str){
+        double ascii = 0;
+        if(str.length() == 1){
+            ascii = (int) str.charAt(0);
+
+        }
+        return ascii;
     }
 
     public static <T> ArrayList<T> intersection(ArrayList<T> list1, ArrayList<T> list2) {

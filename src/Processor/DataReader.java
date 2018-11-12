@@ -25,5 +25,7 @@ public interface DataReader {
 
     public ArrayList<String> getDataAtIndexes(ArrayList<Integer> arr);
 
+    public ArrayList<Double> getASDouble();
+
 
     }

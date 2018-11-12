@@ -35,7 +35,7 @@ public class DataProcessor {
     }
 
     public enum DataType{
-        STRING, DOUBLE, INTEGER
+        STRING, DOUBLE
     }
 
 
@@ -216,7 +216,6 @@ public class DataProcessor {
 
 
     public DataFormat setDataType(DataFormat col){
-        boolean isInt = false;
         boolean isDouble = false;
         String sample;
 
@@ -226,12 +225,10 @@ public class DataProcessor {
                 col.setDataType(DataType.STRING);
                 break;
             }
-            if (isInteger(sample, 10)) isInt = true;
 
             if (isDouble(sample)) isDouble = true;
         }
 
-        if( isInt) col.setDataType(DataType.INTEGER);
         if( isDouble) col.setDataType(DataType.DOUBLE);
 
         return col;
