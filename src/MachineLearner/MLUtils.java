@@ -3,6 +3,7 @@ package MachineLearner;
 import Processor.DataFormat;
 import Processor.DataProcessor;
 import Processor.DataReader;
+import Util.Util;
 
 import javax.xml.crypto.Data;
 import java.lang.reflect.Array;
@@ -16,12 +17,12 @@ import java.util.Iterator;
  */
 public class MLUtils {
 
-    public static DataReader trimIndexesFromAttributes(ArrayList indexesToKeep, DataReader Attributes){
+    public static DataReader trimIndexesFromAttributes(ArrayList indexesToKeep, DataReader Attribute){
         ArrayList<String> newData = new ArrayList<>();
         DataReader newReader;
 
-        newData =  (ArrayList) Attributes.getDataAtIndexes(indexesToKeep).clone();
-        DataProcessor.DataType dt = Attributes.getType();
+        newData =  (ArrayList) Attribute.getDataAtIndexes(indexesToKeep).clone();
+        DataProcessor.DataType dt = Attribute.getType();
         newReader = new DataFormat(newData, dt);
 
         return newReader;
@@ -38,6 +39,7 @@ public class MLUtils {
         return newAttributes;
 
     }
+
 
     public static ArrayList<String> getDataAtIndex(ArrayList<DataReader> Attributes, int index){
         ArrayList<String> Rows = new ArrayList<>();
@@ -80,12 +82,27 @@ public class MLUtils {
         return featureMap;
     }
 
-    public ArrayList<String> normalizeWeight(DataReader dr){
+    public static double getMaxElement(DataReader dr) {
+        ArrayList<Double> data = dr.getASDouble();
+        double max = Collections.max(data);
+
+        return max;
+    }
+
+    public static double getMinElement(DataReader dr) {
+        ArrayList<Double> data = dr.getASDouble();
+        double min = Collections.min(data);
+
+        return min;
+    }
+
+
+    public static ArrayList<String> normalizeWeight(DataReader dr){
         ArrayList<Double> data = dr.getASDouble();
         ArrayList<String> result = new ArrayList<>();
         double weightedVal;
-        double max = Collections.max(data);
-        double min = Collections.min(data);
+        double max = getMaxElement(dr);
+        double min = getMinElement(dr);
         double range = max - min;
 
         for(int i = 0; i < data.size(); i++){
@@ -96,23 +113,14 @@ public class MLUtils {
         return result;
     }
 
-    public ArrayList<String> sparification(DataReader dr){
+    public static ArrayList<String> sparification(DataReader dr){
         ArrayList<String> data = dr.getUniqueElements();
 
-        Collections.sort(data);
-
-
-        ArrayList<String> result = new ArrayList<>();
-
-        for(int i = 0; i < data.size(); i++){
-
-        }
-
-        return result;
+        return Util.createStringHash(data);
     }
 
 
-    public DataReader preProcess(DataReader dr){
+    public static DataReader preProcess(DataReader dr){
         //Use Sparsification on non-numerics
         ArrayList<String> data = dr.getData();
         ArrayList<String> newData;
@@ -121,13 +129,47 @@ public class MLUtils {
             newData = normalizeWeight(dr);
             dr = new DataFormat(newData,DataProcessor.DataType.DOUBLE );
         }else {
+            newData = sparification( dr);
+            dr = new DataFormat(newData,DataProcessor.DataType.STRING );
 
-            for (int i = 0; i < data.size(); i++) {
-
-            }
         }
         return dr;
     }
+
+    public static ArrayList<DataReader> ColtoRowMajor(ArrayList<DataReader> DataSet){
+        //must convert from column major to row major
+        String temp_data;
+        ArrayList<DataReader> row_major = new ArrayList<>();
+        int row_list = DataSet.get(0).getData().size();
+
+        for (int i = 0; i < row_list; i++){
+
+            ArrayList<String> temp = new ArrayList<String>();
+            for(int j = 0; j < DataSet.size(); j++){
+
+                DataReader df = DataSet.get(j);
+                temp_data = df.getData().get(i);
+                temp.add(j, temp_data);
+            }
+
+            DataReader dr = new DataFormat(temp, DataProcessor.DataType.STRING);
+            row_major.add(i, dr);
+
+        }
+        return row_major;
+    }
+
+
+    public static ArrayList<DataReader> RowToColMajor(ArrayList<DataReader> DataSet){
+
+
+        return ColtoRowMajor( DataSet);
+    }
+
+
+
+
+
 
 
 }

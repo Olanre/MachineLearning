@@ -13,7 +13,10 @@ public interface MLAlgorithm {
 
     public void buildModel();
 
+    public String getAlgorithmName();
+
     public ArrayList<String> ClassifySet(ArrayList<DataReader> example_data);
 
+    public String Classify( ArrayList<String> cols);
 
 }

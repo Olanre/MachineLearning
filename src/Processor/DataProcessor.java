@@ -13,6 +13,7 @@ import java.util.Scanner;
 import java.util.HashMap;
 import Log.Logger;
 import Processor.DataReader;
+import Util.Util;
 
 import javax.xml.crypto.Data;
 
@@ -139,7 +140,7 @@ public class DataProcessor {
 
             ArrayList<String> temp = new ArrayList<String>();
             for(int j = 0; j < this.DataSet.size(); j++){
-                if (j == getTargetCol()) continue;
+                //if (j == getTargetCol()) continue;
                 DataFormat df = this.DataSet.get(j);
                 temp_data = df.getData().get(i);
                 temp.add(j, temp_data);
@@ -172,7 +173,7 @@ public class DataProcessor {
 
             ArrayList<String> temp = new ArrayList<String>();
             for(int j = 0; j < this.DataSet.size(); j++){
-                if (j == getTargetCol()) continue;
+                //if (j == getTargetCol()) continue;
 
                 DataFormat df = this.DataSet.get(j);
                 temp_data = df.getData().get(i);
@@ -190,30 +191,6 @@ public class DataProcessor {
         return this.DataSet;
     }
 
-    public static boolean isNumeric(String str) {
-        try {
-            double d = Double.parseDouble(str);
-        } catch (NumberFormatException | NullPointerException exp) {
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean isInteger(String s, int radix) {
-        Scanner sc = new Scanner(s.trim());
-
-        if(!sc.hasNextInt(radix)) return false;
-        sc.nextInt(radix);
-        return !sc.hasNext();
-    }
-
-    public static boolean isDouble(String s) {
-        Scanner sc = new Scanner(s.trim());
-        if(!sc.hasNextDouble()) return false;
-        sc.nextDouble();
-        return !sc.hasNext();
-    }
-
 
     public DataFormat setDataType(DataFormat col){
         boolean isDouble = false;
@@ -221,12 +198,12 @@ public class DataProcessor {
 
         for(int i = 0; i < col.getData().size(); i++) {
             sample = col.getData().get(i);
-            if (!isNumeric(sample)){
+            if (!Util.isNumeric(sample)){
                 col.setDataType(DataType.STRING);
                 break;
             }
 
-            if (isDouble(sample)) isDouble = true;
+            if (Util.isDouble(sample)) isDouble = true;
         }
 
         if( isDouble) col.setDataType(DataType.DOUBLE);
@@ -235,70 +212,8 @@ public class DataProcessor {
 
     }
 
-    public static boolean isNullOrEmpty(String str) {
-        if(str != null && !str.trim().isEmpty())
-            return false;
-        return true;
-    }
 
-    public String findMode(ArrayList<String> Arr){
-        HashMap<String,Integer> hashMap = new HashMap<String,Integer>();
-        String str;
-        String mode = Arr.get(0);
-        int max  = 1;
-
-
-        for(int i = 0; i < Arr.size(); i ++){
-            str = Arr.get(i);
-
-            if (hashMap.get(str) == null) {
-
-                hashMap.put(str, 1);
-            }else{
-
-                int count = hashMap.get(str);
-                count++;
-                hashMap.put(str, count);
-
-                if(count > max) {
-                    max  = count;
-                    mode = str;
-                }
-            }
-        }
-
-        return mode;
-    }
-
-
-
-
-
-
-    public DataFormat FillWithMode(DataFormat col){
-        ArrayList<String> checkArr = new ArrayList<String>();
-        String mode, sample;
-
-        for(int i = 0; i < col.getData().size(); i++) {
-            sample = col.getData().get(i);
-            if (isNullOrEmpty(sample)) continue;
-            checkArr.add(sample);
-        }
-
-        mode = findMode(checkArr);
-
-        for(int i = 0; i < col.getData().size(); i ++){
-            sample = col.getData().get(i);
-            if (isNullOrEmpty(sample)) col.getData().set(i, mode);
-        }
-
-        return col;
-
-    }
-
-
-
-    public void scanData(String fileName, String fileDelimiter, int targetCol) {
+    public void processData() {
         String[] rows;
         int row_length;
         int col_length;
@@ -307,13 +222,13 @@ public class DataProcessor {
         String[][] file_array = new String[10][10];
 
         try {
-            File file = new File(fileName);
+            File file = new File(this.fileName);
             List<String> lines = Files.readAllLines(file.toPath(), StandardCharsets.UTF_8);
             row_length = lines.size();
             for (int i = 0; i < lines.size(); i++) {
 
                 String line = lines.get(i);
-                rows = line.split(fileDelimiter,-1);
+                rows = line.split(this.fileDelimiter,-1);
                 col_length = rows.length;
                 file_array = new String[row_length][col_length];
 
@@ -325,7 +240,7 @@ public class DataProcessor {
             //Process the data in column major format.
             for (int i = 0; i < file_array[0].length; i++){
 
-                if (i == targetCol){
+                if (i == this.TargetCol){
                     setTargetCol(i);
                 }
                 newCol = new DataFormat();
@@ -358,9 +273,9 @@ public class DataProcessor {
 
         total_unique = newCol.getUniqueCounts().size();
         if (total_unique == 0) return newCol;
-        if( total_unique >= 100 && total_unique <= 500 )  discreteClasses = 25;
-        if( total_unique > 500 && total_unique <= 1000 )  discreteClasses = 50;
-        if( total_unique > 1000 )  discreteClasses = total_unique / 10;
+        if( total_unique >= 500 && total_unique <= 1000 )  discreteClasses = 100;
+        if( total_unique > 1000 && total_unique <= 5000 )  discreteClasses = 250;
+        if( total_unique > 5000 )  discreteClasses = total_unique / 10;
 
 
         newCol = setDataType(newCol);
@@ -374,17 +289,33 @@ public class DataProcessor {
         return newCol;
     }
 
+    public DataFormat FillWithMode(DataFormat col){
+        ArrayList<String> checkArr = new ArrayList<String>();
+        String mode, sample;
 
+        for(int i = 0; i < col.getData().size(); i++) {
+            sample = col.getData().get(i);
+            if (Util.isNullOrEmpty(sample)) continue;
+            if( sample == "?") continue;
+            checkArr.add(sample);
+        }
 
+        mode = Util.findMode(checkArr);
+
+        for(int i = 0; i < col.getData().size(); i ++){
+            sample = col.getData().get(i);
+            if (Util.isNullOrEmpty(sample)) col.getData().set(i, mode);
+        }
+
+        return col;
+
+    }
 
 
     public double[] getK_Bins(int discreteClasses, DataFormat col){
         int dataSize = col.getData().size();
         double[] k_bins = new double[discreteClasses];
         double max, min, range, incrementStep, incrValue;
-
-
-
 
         if(dataSize < 1)  return k_bins;
 
@@ -403,14 +334,10 @@ public class DataProcessor {
                 incrValue = incrValue + incrementStep;
 
             }
-
         }
-
         return k_bins;
 
     }
-
-
 
     public DataFormat descretization(int discreteClasses, DataFormat col){
         int dataSize;
@@ -438,7 +365,6 @@ public class DataProcessor {
 
         }
         return col;
-
     }
 
 }

@@ -23,29 +23,39 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
     private double Remainder;
     private double Gain;
     private double maxGain;
-    private final int randomRatio;
+    private int randomRatio = 0;
+    private int maxDepth;
+    public static final String AlgorithmName = "ID3";
+
 
     private Node tree;
 
 
 
-    public ID3Learner(ArrayList<DataReader> Attributes, DataReader GoalAttribute,int  randomRatio){
-        this.Attributes = Attributes;
-        this.GoalAttribute = GoalAttribute;
+    public ID3Learner(int  randomRatio){
         this.randomRatio = randomRatio;
     }
 
-    public ID3Learner(ArrayList<DataReader> Attributes, DataReader GoalAttribute){
-        this.Attributes = Attributes;
-        this.GoalAttribute = GoalAttribute;
-        this.randomRatio = 0;
-    }
+
 
     public void learnData(ArrayList<DataReader> Attributes, DataReader GoalAttribute){
-        this.tree =  buildTree(Attributes, GoalAttribute);
+        buildModel();
 
 
     }
+
+    public String getAlgorithmName() {
+        return AlgorithmName;
+    }
+
+    public int getMaxDepth() {
+        return maxDepth;
+    }
+
+    public void setMaxDepth(int maxDepth) {
+        this.maxDepth = maxDepth;
+    }
+
 
     public Node getTree() {
         return this.tree;
@@ -58,7 +68,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
 
     public void buildModel(){
 
-        this.tree = buildTree(this.Attributes, this.GoalAttribute);
+        this.tree = buildTree(this.Attributes, this.GoalAttribute, 0);
 
     }
 
@@ -66,13 +76,27 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
         return MLUtils.getRowsinList(targetAttributes.getUniqueCounts(), targetAttributes).size() == 1;
     }
 
+    public boolean depthReached(int currentDepth){
+        if (this.maxDepth == 0 ) return false;
+        if(currentDepth >  this.maxDepth) {
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 
     public Node buildTree(ArrayList<DataReader> currentAttributes, DataReader targetAttribute){
+       return  buildTree( currentAttributes, targetAttribute,  0);
+    }
+
+
+    public Node buildTree(ArrayList<DataReader> currentAttributes, DataReader targetAttribute, int currentDepth){
         DecisionNode decision_data =  new DecisionNode();
         ArrayList<Integer> indices;
         int dataSize = currentAttributes.size();
         Node root  = new Node();
-        if( allExamplesPositive(targetAttribute) || currentAttributes.isEmpty()){
+        if( allExamplesPositive(targetAttribute) || currentAttributes.isEmpty() || depthReached(currentDepth) ){
             String value = targetAttribute.findMode(targetAttribute.getUniqueElements());
             decision_data =  new DecisionNode(targetAttribute, value);
             root.setData(decision_data);
@@ -111,8 +135,8 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
                     ArrayList<DataReader> newCurrentAttributes = MLUtils.getReadersFromIndexes(indexes,this.Attributes);
 
                     DataReader newTargetAttribute = MLUtils.trimIndexesFromAttributes(indexes, targetAttribute);
-
-                    child = buildTree(newCurrentAttributes, newTargetAttribute);
+                     currentDepth += 1;
+                    child = buildTree(newCurrentAttributes, newTargetAttribute, currentDepth);
                     child.setBranch(key);
                     root.addChild(child);
                 }
@@ -128,22 +152,23 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
     }
 
 
-    public void preProcess(DataReader dr){
-
-    }
-
     public ArrayList<String> ClassifySet(ArrayList<DataReader> example_data){
         ArrayList<String> result = new ArrayList<String>();
         DataReader row;
 
         for(int i = 0; i < example_data.size(); i ++){
             row = example_data.get(i);
-            String classification = Classify(row.getData(), this.tree);
+            String classification = Classify(row.getData());
             result.add(classification);
         }
 
         return result;
     }
+
+    public String Classify( ArrayList<String> cols){
+        return Classify(cols, this.tree);
+    }
+
 
     public String Classify( ArrayList<String> cols, Node tree){
         String classification = "";

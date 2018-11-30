@@ -15,8 +15,5 @@ public interface DecisionTree {
 
     public Node buildTree(ArrayList<DataReader> currentAttributes, DataReader targetAttribute);
 
-    public String Classify( ArrayList<String> cols, Node tree);
-
-
 
 }

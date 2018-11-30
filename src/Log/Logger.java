@@ -13,25 +13,36 @@ import java.text.SimpleDateFormat;
 
 public class Logger {
     private static boolean initialized;
-    private static boolean suppresRedundantErrors;
     private LogLevel logLevel;
-    private String ClassName;
+    private String ClassName, fileName;
     private File file;
     private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-
 
     public enum LogLevel {
         INFO, DEBUG, WARN, ERROR,
     }
 
-    public Logger(File logFile, LogLevel logLevel, String ClassName ){
-        this.file = logFile;
+    public Logger(String logFile, LogLevel logLevel, String ClassName ){
         this.logLevel = logLevel;
-        this.ClassName = ClassName;
+        init();
     }
 
-    public Logger( File logFile, String ClassName){
-        this.file = logFile;
+    public Logger( String logFile, String ClassName){
+        init();
+    }
+
+    public void init (){
+        //file name only
+        file = new File(this.fileName);
+        this.file = file;
+
+        try{
+            file.createNewFile();
+            System.out.println( this.fileName + " File Created in Project root directory");
+
+        } catch (IOException e) {
+            System.out.println("Unable to create to file " + this.file + " Due to exception: " + e.getMessage());
+        }
         this.ClassName = ClassName;
     }
 

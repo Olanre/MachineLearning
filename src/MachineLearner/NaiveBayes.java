@@ -10,18 +10,29 @@ import Util.Util;
 /**
  * Created by olanre on 2018-11-04.
  */
-public class NaiveBayes {
+public class NaiveBayes  implements  MLAlgorithm{
 
     private ArrayList<DataReader> Attributes;
     private DataReader GoalAttribute;
     private HashMap<String, Double> priorProbability;
     private HashMap<String, Double> conditionProbability;
+    public final String AlgorithmName = "NaiveBayes";
 
 
+    public void learnData(ArrayList<DataReader> drs, DataReader goal){
+        this.Attributes = drs;
+        this.GoalAttribute = goal;
+        buildModel();
+    }
 
-    public NaiveBayes(ArrayList<DataReader> Attributes, DataReader GoalAttribute){
-        this.Attributes = Attributes;
-        this.GoalAttribute = GoalAttribute;
+    public void buildModel(){
+        buildPriorProbabilites();
+        buildConditionProbabilities();
+
+    }
+
+    public String getAlgorithmName() {
+        return AlgorithmName;
     }
 
     public void buildPriorProbabilites(){
@@ -37,7 +48,6 @@ public class NaiveBayes {
             ArrayList<Integer> value = (ArrayList<Integer>) entry.getValue();
             priorProbability = value.size() / this.GoalAttribute.getData().size() ;
             this.priorProbability.put(key, priorProbability);
-            //System.out.println("Key = " + key + ", Value = " + value);
         }
     }
 
@@ -68,28 +78,10 @@ public class NaiveBayes {
                 Probability = (transientIndexes.size() + 1) / (goalValue.size() + m);
                 this.conditionProbability.put(featureAndGoal, Probability);
             }
-            //System.out.println("Key = " + key + ", Value = " + value);
         }
 
     }
 
-
-    public void learnData(ArrayList<DataReader> drs, DataReader goal){
-        this.Attributes = drs;
-        this.GoalAttribute = goal;
-        //preProcess(goal);
-        buildModel();
-    }
-
-    public void buildModel(){
-        buildPriorProbabilites();
-        buildConditionProbabilities();
-
-    }
-
-    public void preProcess(DataReader dr){
-
-    }
 
     public ArrayList<String> ClassifySet(ArrayList<DataReader> example_data){
         ArrayList<String> result = new ArrayList<String>();
@@ -117,7 +109,6 @@ public class NaiveBayes {
     }
 
     public String Classify( ArrayList<String> cols){
-        String classification = "";
         String attrValue, targetValue;
         HashMap<String, Double> classification_set = new HashMap<>();
         ArrayList<String> possibleGoals = this.GoalAttribute.getUniqueElements();
