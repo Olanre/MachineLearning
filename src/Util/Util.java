@@ -78,17 +78,17 @@ public class Util {
         return true;
     }
 
-    public static ArrayList<String> createStringHash(ArrayList<String> data){
+    public static int  createStringHash(Object data){
 
-        Collections.sort(data);
+        //Collections.sort(data);
 
-        ArrayList<String> result = new ArrayList<>();
+        //HashMap<String, String> result = new HashMap<>();
 
-        for(int i = 0; i < data.size(); i++){
-            result.add(i, String.valueOf(i));
-        }
+        //for(int i = 0; i < data.size(); i++){
+            //result.put(data.get(i), String.valueOf(i));
+        //}
 
-        return result;
+        return data.hashCode();
     }
 
     public static <T> ArrayList<T> intersection(ArrayList<T> list1, ArrayList<T> list2) {
@@ -121,6 +121,7 @@ public class Util {
     }
 
     public static boolean isDouble(String s) {
+        if( isNumeric(s) == false) return false;
         Scanner sc = new Scanner(s.trim());
         if(!sc.hasNextDouble()) return false;
         sc.nextDouble();
@@ -138,6 +139,26 @@ public class Util {
             }
         }
         return max.getKey();
+    }
+
+    public static double getMax(ArrayList<Double> inputList){
+        double maxValue = inputList.get(0);
+        for(int i=1;i < inputList.size();i++){
+            if(inputList.get(i) > maxValue){
+                maxValue = inputList.get(i);
+            }
+        }
+        return maxValue;
+    }
+
+    public static double getMin(ArrayList<Double> inputList){
+        double minValue = inputList.get(0);
+        for(int i=1;i < inputList.size();i++){
+            if(inputList.get(i) < minValue){
+                minValue = inputList.get(i);
+            }
+        }
+        return minValue;
     }
 
 

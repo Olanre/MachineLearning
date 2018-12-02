@@ -1,5 +1,6 @@
 package MachineLearner;
 
+import Log.Logger;
 import Processor.DataReader;
 import DecisionTree.Node;
 import java.util.ArrayList;
@@ -24,18 +25,35 @@ public class AdaBoost implements MLAlgorithm {
     private ArrayList<ID3Learner> weakLearners;
     public static final String AlgorithmName = "AdaBoost";
 
+    Logger log;
 
 
     public void learnData(ArrayList<DataReader> drs, DataReader goal){
         this.Attributes = drs;
         this.GoalAttribute = goal;
+        initLoggers();
         preInit();
         buildModel();
+    }
 
+    public void initLoggers(){
+        this.log = new Logger(this.AlgorithmName, Logger.LogLevel.INFO, this.AlgorithmName);
+        this.GoalAttribute.setLog(this.log);
+        for(DataReader Attribute: this.Attributes){
+            Attribute.setLog(this.log);
+        }
     }
 
     public String getAlgorithmName() {
         return AlgorithmName;
+    }
+
+    public Logger getLog() {
+        return log;
+    }
+
+    public void setLog(Logger log) {
+        this.log = log;
     }
 
     public int getBins() {

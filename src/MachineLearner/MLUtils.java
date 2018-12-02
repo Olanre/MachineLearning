@@ -4,6 +4,7 @@ import Processor.DataFormat;
 import Processor.DataProcessor;
 import Processor.DataReader;
 import Util.Util;
+import Log.Logger;
 
 import javax.xml.crypto.Data;
 import java.lang.reflect.Array;
@@ -16,6 +17,11 @@ import java.util.Iterator;
  * Created by olanre on 2018-11-02.
  */
 public class MLUtils {
+
+    public static  Logger initLogger(){
+        Logger log =  new Logger("MLUtils", Logger.LogLevel.INFO, "MLUtils");
+        return log;
+    }
 
     public static DataReader trimIndexesFromAttributes(ArrayList indexesToKeep, DataReader Attribute){
         ArrayList<String> newData = new ArrayList<>();
@@ -97,6 +103,8 @@ public class MLUtils {
     }
 
 
+
+
     public static ArrayList<String> normalizeWeight(DataReader dr){
         ArrayList<Double> data = dr.getASDouble();
         ArrayList<String> result = new ArrayList<>();
@@ -105,38 +113,81 @@ public class MLUtils {
         double min = getMinElement(dr);
         double range = max - min;
 
+        String msg;
+        Logger log = initLogger();
+
+        msg = "<< Entering normalizeWeight for MlUtils";
+        log.Log("normalizeWeight", msg);
+
+
+        msg = String.format("The max number in our Reader: %s. The minimum number is: %s. The range is: %s", max, min, range);
+        log.Log("normalizeWeight", msg);
+
         for(int i = 0; i < data.size(); i++){
             weightedVal = (data.get(i) - min)/range;
-            result.set(i, Double.toString(weightedVal) );
+            result.add(i, Double.toString(weightedVal) );
+            msg = String.format("Adding new weightedValue of: %s into our Data Object at index: %s for the Reader", weightedVal, String.valueOf(i));
+            log.Log("normalizeWeight", msg);
         }
-
+        msg = ">> Leaving normalizeWeight for MlUtils";
+        log.Log("normalizeWeight", msg);
         return result;
     }
 
     public static ArrayList<String> sparification(DataReader dr){
-        ArrayList<String> data = dr.getUniqueElements();
+        ArrayList<String> result = new ArrayList<>();
 
-        return Util.createStringHash(data);
+        for(int i = 0; i < dr.getData().size(); i++){
+            String val = dr.getData().get(i);
+            int hash = Util.createStringHash(val);
+            result.add(i, Integer.toString(hash));
+        }
+        return result;
     }
 
 
     public static DataReader preProcess(DataReader dr){
         //Use Sparsification on non-numerics
+        String msg;
+        Logger log = initLogger();
+
+        msg = "<< Entering preProcess for MlUtils";
+        log.Log("preProcess", msg);
         ArrayList<String> data = dr.getData();
         ArrayList<String> newData;
 
         if(dr.getType() == DataProcessor.DataType.DOUBLE) {
+            msg = "Data Type is Double so we will be normalizing the weights";
+            log.Log("preProcess", msg);
             newData = normalizeWeight(dr);
+
             dr = new DataFormat(newData,DataProcessor.DataType.DOUBLE );
+            dr.setLog(log);
+            log.Log("preProcess", dr.printData());
+
         }else {
+
+            msg = "Data Type is String so we will be sparsifying the words";
+            log.Log("preProcess", msg);
+
             newData = sparification( dr);
             dr = new DataFormat(newData,DataProcessor.DataType.STRING );
+            dr.setLog(log);
+            log.Log("preProcess", dr.printData());
 
         }
+        msg = ">> Leaving ColtoRowMajor for MlUtils";
+        log.Log("ColtoRowMajor", msg);
         return dr;
     }
 
     public static ArrayList<DataReader> ColtoRowMajor(ArrayList<DataReader> DataSet){
+
+        Logger log = initLogger();
+        String msg;
+        msg = "<< Entering preProcess for MlUtils";
+        log.Log("preProcess", msg);
+
         //must convert from column major to row major
         String temp_data;
         ArrayList<DataReader> row_major = new ArrayList<>();
@@ -148,14 +199,26 @@ public class MLUtils {
             for(int j = 0; j < DataSet.size(); j++){
 
                 DataReader df = DataSet.get(j);
+                //DataReader df = new DataFormat( DataSet.get(j));
                 temp_data = df.getData().get(i);
+                msg = String.format("Adding new column: %s at index: %s in row: %s: " , temp_data, String.valueOf(j), String.valueOf(i) );
+                log.Log("ColtoRowMajor", msg);
                 temp.add(j, temp_data);
+
             }
 
             DataReader dr = new DataFormat(temp, DataProcessor.DataType.STRING);
+            dr.setLog(log);
+            log.Log("ColtoRowMajor", dr.printData());
             row_major.add(i, dr);
+            msg = String.format("Adding new row in data at index %s", String.valueOf(i));
+            log.Log("ColtoRowMajor", msg);
 
         }
+
+        msg = ">> Leaving ColtoRowMajor for MlUtils";
+        log.Log("ColtoRowMajor", msg);
+
         return row_major;
     }
 

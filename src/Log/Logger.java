@@ -24,11 +24,19 @@ public class Logger {
 
     public Logger(String logFile, LogLevel logLevel, String ClassName ){
         this.logLevel = logLevel;
+        this.fileName = logFile;
+        this.ClassName = ClassName;
         init();
     }
 
     public Logger( String logFile, String ClassName){
+
+        this.fileName = logFile;
+        this.ClassName = ClassName;
+        this.logLevel = LogLevel.INFO;
+
         init();
+
     }
 
     public void init (){
@@ -38,12 +46,10 @@ public class Logger {
 
         try{
             file.createNewFile();
-            System.out.println( this.fileName + " File Created in Project root directory");
 
         } catch (IOException e) {
             System.out.println("Unable to create to file " + this.file + " Due to exception: " + e.getMessage());
         }
-        this.ClassName = ClassName;
     }
 
     public LogLevel getLogLevel(){
@@ -57,6 +63,8 @@ public class Logger {
     private String CastLogLine(String Caller, String message){
         Date date = new Date();
         String Log = String.format("[%s] [%s] [%s] [%s] %s ", sdf.format(date), this.ClassName, this.logLevel, Caller, message);
+        if(this.getLogLevel() ==  LogLevel.DEBUG) System.out.println(Log);
+
         return Log;
     }
 

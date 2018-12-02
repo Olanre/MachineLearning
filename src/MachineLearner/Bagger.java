@@ -1,6 +1,7 @@
 package MachineLearner;
 
 import DecisionTree.Node;
+import Log.Logger;
 import Processor.DataReader;
 import Processor.DataFormat;
 import Util.Util;
@@ -14,6 +15,9 @@ public class Bagger {
     private ArrayList<DataReader> Attributes;
     private DataReader GoalAttribute;
     private ArrayList<MLAlgorithm> WeakLearners;
+    private String AlgorithmName = "Bagger";
+    Logger log;
+
 
     int bags = 50;
     int sampleRatio;
@@ -27,7 +31,31 @@ public class Bagger {
     public void learnData(ArrayList<DataReader> drs, DataReader goal){
         this.Attributes = drs;
         this.GoalAttribute = goal;
+        initLoggers();
+        buildModel();
 
+
+    }
+
+
+    public void initLoggers(){
+        this.log = new Logger(this.AlgorithmName, Logger.LogLevel.INFO, this.AlgorithmName);
+        this.GoalAttribute.setLog(this.log);
+        for(DataReader Attribute: this.Attributes){
+            Attribute.setLog(this.log);
+        }
+    }
+
+    public void setAlgorithmName(String algorithmName) {
+        AlgorithmName = algorithmName;
+    }
+
+    public Logger getLog() {
+        return log;
+    }
+
+    public void setLog(Logger log) {
+        this.log = log;
     }
 
     public int getBags() {
@@ -52,11 +80,11 @@ public class Bagger {
         ArrayList<DataReader> AttributeBag = new ArrayList<>();
         ArrayList<Integer> indexes;
 
-        dataSize = this.GoalAttribute.getData().size();
+        dataSize = this.Attributes.get(0).getData().size();
         sampleSize = dataSize/ this.sampleRatio;
         this.WeakLearners = new ArrayList<>();
         for(int i = 0; i < bags; i++){
-            indexes = Util.getRandomInts(0, dataSize, sampleSize  );
+            indexes = Util.getRandomInts(0, dataSize - 1, sampleSize  );
             Bag bag = new Bag(indexes, this.Attributes, this.GoalAttribute);
             this.WeakLearners.add(i, getNewWeakLearner(bag));
         }

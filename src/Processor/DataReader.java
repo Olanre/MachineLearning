@@ -1,5 +1,7 @@
 package Processor;
 
+import Log.Logger;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +15,9 @@ public interface DataReader {
 
     public ArrayList<String> getData();
 
-    public void printData();
+    public String printData();
+
+    public void setLog(Logger log);
 
     public HashMap<String, ArrayList> getUniqueCounts();
 

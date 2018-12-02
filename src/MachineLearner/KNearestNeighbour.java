@@ -1,6 +1,7 @@
 package MachineLearner;
 
 import DecisionTree.Node;
+import Log.Logger;
 import Processor.DataProcessor;
 import Processor.DataReader;
 import Util.Util;
@@ -22,13 +23,32 @@ public class KNearestNeighbour  implements MLAlgorithm{
     private DataReader GoalAttribute;
     private ArrayList<DataReader> TotalAttributes;
     public static final String AlgorithmName = "KNN";
+    Logger log;
+
 
 
     public void learnData(ArrayList<DataReader> drs, DataReader goal){
         this.Attributes = drs;
         this.GoalAttribute = goal;
+        initLoggers();
         buildModel();
 
+
+    }
+    public void initLoggers(){
+        this.log = new Logger(this.AlgorithmName, Logger.LogLevel.INFO, this.AlgorithmName);
+        this.GoalAttribute.setLog(this.log);
+        for(DataReader Attribute: this.Attributes){
+            Attribute.setLog(this.log);
+        }
+    }
+
+    public Logger getLog() {
+        return log;
+    }
+
+    public void setLog(Logger log) {
+        this.log = log;
     }
 
     public String getAlgorithmName() {
@@ -168,10 +188,10 @@ public class KNearestNeighbour  implements MLAlgorithm{
 
                 DataReader col = this.Attributes.get(i);
                 ArrayList<String> data = col.getUniqueElements();
-                data.add(val);
-                ArrayList<String> newStrCol = Util.createStringHash(data);
-                double index = newStrCol.indexOf(val);
-                newCol.add(i, index);
+                int  hash = Util.createStringHash(val);
+                //double index = newStrCol.indexOf(val);
+                newCol.add(i, Double.valueOf(hash));
+                //Todo need a global dictionary here for all the possible values likely hashcode
 
             }
         }

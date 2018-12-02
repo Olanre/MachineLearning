@@ -1,5 +1,6 @@
 package MachineLearner;
 
+import Log.Logger;
 import Processor.DataReader;
 
 import java.util.ArrayList;
@@ -18,5 +19,9 @@ public interface MLAlgorithm {
     public ArrayList<String> ClassifySet(ArrayList<DataReader> example_data);
 
     public String Classify( ArrayList<String> cols);
+
+    public Logger getLog();
+
+    public void setLog(Logger log);
 
 }

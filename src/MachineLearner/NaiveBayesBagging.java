@@ -1,5 +1,6 @@
 package MachineLearner;
 
+import Log.Logger;
 import Processor.DataReader;
 
 import java.util.ArrayList;
@@ -18,12 +19,12 @@ public class NaiveBayesBagging extends Bagger implements MLAlgorithm {
 
     public NaiveBayesBagging( int sampleRatio){
         super(sampleRatio);
+
     }
 
     public String getAlgorithmName() {
         return AlgorithmName;
     }
-
 
     public MLAlgorithm getNewWeakLearner(Bag bag ){
 

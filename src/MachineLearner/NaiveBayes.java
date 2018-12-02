@@ -1,5 +1,6 @@
 package MachineLearner;
 
+import Log.Logger;
 import Processor.DataReader;
 
 import java.util.ArrayList;
@@ -17,19 +18,41 @@ public class NaiveBayes  implements  MLAlgorithm{
     private HashMap<String, Double> priorProbability;
     private HashMap<String, Double> conditionProbability;
     public final String AlgorithmName = "NaiveBayes";
+    HashMap<String, ArrayList> goalClasses = new HashMap<>();
+    Logger log;
 
 
     public void learnData(ArrayList<DataReader> drs, DataReader goal){
         this.Attributes = drs;
         this.GoalAttribute = goal;
+        initLoggers();
         buildModel();
     }
 
+    public void initLoggers(){
+        this.log = new Logger(this.AlgorithmName, Logger.LogLevel.DEBUG, this.AlgorithmName);
+        this.GoalAttribute.setLog(this.log);
+        for(DataReader Attribute: this.Attributes){
+            Attribute.setLog(this.log);
+        }
+    }
+
     public void buildModel(){
+        this.goalClasses = this.GoalAttribute.getUniqueCounts();
         buildPriorProbabilites();
         buildConditionProbabilities();
 
     }
+
+    public Logger getLog() {
+        return log;
+    }
+
+    public void setLog(Logger log) {
+        this.log = log;
+    }
+
+
 
     public String getAlgorithmName() {
         return AlgorithmName;
@@ -37,16 +60,15 @@ public class NaiveBayes  implements  MLAlgorithm{
 
     public void buildPriorProbabilites(){
 
-        HashMap<String, ArrayList> goalClasses = this.GoalAttribute.getUniqueCounts();
-        Iterator space = goalClasses.entrySet().iterator();
+        Iterator space = this.goalClasses.entrySet().iterator();
         double priorProbability;
 
-        this.priorProbability.clear();
+        this.priorProbability = new HashMap<>();
         while (space.hasNext()) {
             HashMap.Entry entry = (HashMap.Entry) space.next();
             String key = (String)entry.getKey();
             ArrayList<Integer> value = (ArrayList<Integer>) entry.getValue();
-            priorProbability = value.size() / this.GoalAttribute.getData().size() ;
+            priorProbability = Double.valueOf(value.size()) / Double.valueOf(this.GoalAttribute.getData().size()) ;
             this.priorProbability.put(key, priorProbability);
         }
     }
@@ -54,28 +76,28 @@ public class NaiveBayes  implements  MLAlgorithm{
     public void buildConditionProbabilities(){
 
         HashMap<String, ArrayList> totalFeatures = MLUtils.getAllFeaturesMap(this.Attributes);
-        HashMap<String, ArrayList> goalClasses = this.GoalAttribute.getUniqueCounts();
+        //this.goalClasses = this.GoalAttribute.getUniqueCounts();
         Iterator space = totalFeatures.entrySet().iterator();
         ArrayList<Integer> transientIndexes;
         int m = this.GoalAttribute.getUniqueElements().size();
-
+        double n =  Double.valueOf(this.GoalAttribute.getData().size());
         double Probability;
 
-        this.conditionProbability.clear();
+        this.conditionProbability = new HashMap<>();
         while (space.hasNext()) {
             HashMap.Entry entry = (HashMap.Entry) space.next();
             String featureKey = (String)entry.getKey();
             ArrayList<Integer> featureValue = (ArrayList<Integer>) entry.getValue();
             //transientIndexes = GoalAttribute.getDataAtIndexes(featureValue);
-            Iterator goalSpace = goalClasses.entrySet().iterator();
+            Iterator goalSpace = this.goalClasses.entrySet().iterator();
             while (goalSpace.hasNext()) {
-                HashMap.Entry goalEntry = (HashMap.Entry) space.next();
+                HashMap.Entry goalEntry = (HashMap.Entry) goalSpace.next();
                 String goalKey = (String)goalEntry.getKey();
                 ArrayList<Integer> goalValue = (ArrayList<Integer>) goalEntry.getValue();
                 String featureAndGoal =  featureKey + "|" + goalKey;
                 transientIndexes = Util.intersection(featureValue, goalValue);
-                //calculate using naive bayes estimator to avoid conditional probability of 0
-                Probability = (transientIndexes.size() + 1) / (goalValue.size() + m);
+                //calculate using naive bayes estimator to avoid conditional probability of 0 using Laplace Smoothing
+                Probability = (Double.valueOf(transientIndexes.size()) + 1.0) / (n + Double.valueOf(m));
                 this.conditionProbability.put(featureAndGoal, Probability);
             }
         }
@@ -98,9 +120,17 @@ public class NaiveBayes  implements  MLAlgorithm{
     }
 
     public Double getPosterior( String value, String target){
-
+        int m = this.GoalAttribute.getUniqueElements().size();
+        double n =  Double.valueOf(this.GoalAttribute.getData().size());
         String concat = value + "|" + target;
-        return this.conditionProbability.get(concat);
+        if(this.conditionProbability.get(concat) == null){
+            double LaplaceSmooth = 1.0/ (1.0 * Double.valueOf(m) + n);
+            return LaplaceSmooth;
+
+        }else{
+            return this.conditionProbability.get(concat);
+
+        }
     }
 
     public Double getPrior(String target){
@@ -112,15 +142,16 @@ public class NaiveBayes  implements  MLAlgorithm{
         String attrValue, targetValue;
         HashMap<String, Double> classification_set = new HashMap<>();
         ArrayList<String> possibleGoals = this.GoalAttribute.getUniqueElements();
-
+        double posterior = 0.0;
         for(int j = 0 ; j < possibleGoals.size() ; j ++){
             targetValue = possibleGoals.get(j);
-            double posterior = getPrior(targetValue);
-
+             posterior = getPrior(targetValue);
+            double new_posterior = 1.0;
             for(int i = 0; i < cols.size(); i ++){
                 attrValue = cols.get(i);
-                posterior  = posterior * getPosterior( attrValue, targetValue);
+                new_posterior  = new_posterior * getPosterior( attrValue, targetValue);
             }
+            posterior = posterior * new_posterior;
 
             classification_set.put(targetValue, posterior);
 

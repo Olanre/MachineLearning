@@ -1,6 +1,7 @@
 package MachineLearner;
 
 import DecisionTree.DecisionTree;
+import Log.Logger;
 import Processor.DataReader;
 
 import java.lang.reflect.Array;
@@ -26,6 +27,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
     private int randomRatio = 0;
     private int maxDepth;
     public static final String AlgorithmName = "ID3";
+    Logger log;
 
 
     private Node tree;
@@ -38,10 +40,28 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
 
 
 
-    public void learnData(ArrayList<DataReader> Attributes, DataReader GoalAttribute){
+    public void learnData(ArrayList<DataReader> drs, DataReader goal){
+        this.Attributes = drs;
+        this.GoalAttribute = goal;
+        initLoggers();
         buildModel();
 
+    }
+    public void initLoggers(){
+        this.log = new Logger(this.AlgorithmName, Logger.LogLevel.INFO, this.AlgorithmName);
+        this.GoalAttribute.setLog(this.log);
+        for(DataReader Attribute: this.Attributes){
+            Attribute.setLog(this.log);
+        }
+    }
 
+
+    public Logger getLog() {
+        return log;
+    }
+
+    public void setLog(Logger log) {
+        this.log = log;
     }
 
     public String getAlgorithmName() {
