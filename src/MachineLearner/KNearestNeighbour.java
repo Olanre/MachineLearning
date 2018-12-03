@@ -6,10 +6,7 @@ import Processor.DataProcessor;
 import Processor.DataReader;
 import Util.Util;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Collections;
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * Created by olanre on 2018-11-06.
@@ -69,7 +66,7 @@ public class KNearestNeighbour  implements MLAlgorithm{
         if(attributesVals.size() != testValues.size())return 0;
 
         for(int i = 0; i < attributesVals.size(); i ++){
-            subtractResult = Math.abs(attributesVals.get(i) - testValues.get(i));
+            subtractResult = Math.abs(Double.valueOf(attributesVals.get(i)) - Double.valueOf(testValues.get(i)));
             powerResult = Math.pow(subtractResult, p);
             Summation += powerResult;
         }
@@ -89,11 +86,12 @@ public class KNearestNeighbour  implements MLAlgorithm{
 
         }
         int discreteClasses = this.GoalAttribute.getUniqueElements().size();
-
-        if((discreteClasses % 2) == 0 ){
-            this.k = (discreteClasses / 2) - 1;
-        }else{
-            this.k = discreteClasses/ 2;
+        if( discreteClasses > 10) {
+            if ((discreteClasses % 2) == 0) {
+                this.k = (discreteClasses / 2) + 1;
+            } else {
+                this.k = discreteClasses / 2;
+            }
         }
 
         this.TotalAttributes = MLUtils.ColtoRowMajor(this.Attributes);
@@ -118,7 +116,8 @@ public class KNearestNeighbour  implements MLAlgorithm{
     public ArrayList<String> buildKClassifiers(ArrayList<Double> parsedCols){
         ArrayList<Double> RowData = new ArrayList<>();
         DataReader row;
-        double distance, distance2, distance3;
+        String msg;
+        double distance;
 
         ArrayList<String> classifications = new ArrayList<>();
 
@@ -145,19 +144,29 @@ public class KNearestNeighbour  implements MLAlgorithm{
 
         }
 
-        List<Double> Hammingkeys = new ArrayList<Double>(HammingDistances.keySet());
+        List<Double> Hammingkeys = Util.getKeysFromMap(HammingDistances);
+        msg = String.format("Keys are algorithm: %s \n", Hammingkeys.toString());
+        log.Log("buildKClassifiers", msg);
         Collections.sort(Hammingkeys);
-        Hammingkeys = Hammingkeys.subList(0, this.getK());
+        if( Hammingkeys.size() > this.getK()){
+            Hammingkeys = Hammingkeys.subList(0, this.getK());
+        }
         classifications.addAll(Util.ValsFromHashAsArr( HammingDistances, Hammingkeys ));
 
-        List<Double> Manhattankeys = new ArrayList<Double>(ManhattanDistances.keySet());
+        List<Double> Manhattankeys = Util.getKeysFromMap(ManhattanDistances);
         Collections.sort(Manhattankeys);
+        if( Manhattankeys.size() > this.getK()){
+            Manhattankeys = Manhattankeys.subList(0, this.getK());
+        }
         Manhattankeys = Manhattankeys.subList(0, this.getK());
         classifications.addAll(Util.ValsFromHashAsArr( ManhattanDistances, Manhattankeys ));
 
 
-        List<Double> Euclideankeys = new ArrayList<Double>(EuclideanDistances.keySet());
+        List<Double> Euclideankeys = Util.getKeysFromMap(EuclideanDistances);
         Collections.sort(Euclideankeys);
+        if( Euclideankeys.size() > this.getK()){
+            Euclideankeys = Euclideankeys.subList(0, this.getK());
+        }
         Euclideankeys = Euclideankeys.subList(0, this.getK());
         classifications.addAll(Util.ValsFromHashAsArr( EuclideanDistances, Euclideankeys ));
 
@@ -185,13 +194,8 @@ public class KNearestNeighbour  implements MLAlgorithm{
                 newCol.add(i, weightedVal);
 
             }else{
-
-                DataReader col = this.Attributes.get(i);
-                ArrayList<String> data = col.getUniqueElements();
                 int  hash = Util.createStringHash(val);
-                //double index = newStrCol.indexOf(val);
                 newCol.add(i, Double.valueOf(hash));
-                //Todo need a global dictionary here for all the possible values likely hashcode
 
             }
         }
@@ -203,7 +207,8 @@ public class KNearestNeighbour  implements MLAlgorithm{
 
         ArrayList<Double> parsedCols = processColumns(cols);
         ArrayList<String> possibleClassifications = buildKClassifiers(parsedCols);
-        classification = Util.findMode(possibleClassifications);
+        String mode = Util.findMode(possibleClassifications);
+        classification = GoalAttribute.getData().get( Integer.parseInt(mode));
 
         return classification;
     }

@@ -2,15 +2,19 @@ package MachineLearner;
 
 import DecisionTree.DecisionTree;
 import Log.Logger;
+import Processor.DataFormat;
 import Processor.DataReader;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import DecisionTree.Node;
 import DecisionTree.DecisionNode;
 import Util.Util;
+
+import javax.xml.crypto.Data;
 
 
 /**
@@ -24,8 +28,8 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
     private double Remainder;
     private double Gain;
     private double maxGain;
-    private int randomRatio = 0;
-    private int maxDepth;
+    private double randomRatio = 0.0;
+    private int maxDepth, currentDepth;
     public static final String AlgorithmName = "ID3";
     Logger log;
 
@@ -34,7 +38,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
 
 
 
-    public ID3Learner(int  randomRatio){
+    public ID3Learner(double  randomRatio){
         this.randomRatio = randomRatio;
     }
 
@@ -48,6 +52,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
 
     }
     public void initLoggers(){
+
         this.log = new Logger(this.AlgorithmName, Logger.LogLevel.INFO, this.AlgorithmName);
         this.GoalAttribute.setLog(this.log);
         for(DataReader Attribute: this.Attributes){
@@ -87,8 +92,19 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
 
 
     public void buildModel(){
+        ArrayList<Integer> copyIndexes = new ArrayList<>();
+        for(int i = 0; i < this.Attributes.get(0).getData().size(); i++){
+            copyIndexes.add(i);
+        }
 
-        this.tree = buildTree(this.Attributes, this.GoalAttribute, 0);
+        ArrayList<DataReader> copyAttributes = MLUtils.getReadersFromIndexes(copyIndexes, this.Attributes);
+
+        DataReader copyGoal = new DataFormat(this.GoalAttribute);
+        //copyAttributes.remove(0);
+        setMaxDepth(10);
+        this.tree = buildTree(copyAttributes, copyGoal, 0);
+        String msg= "The final maximum depth was:  " + this.currentDepth;
+        log.Log("buildTree", msg);
 
     }
 
@@ -115,26 +131,46 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
         DecisionNode decision_data =  new DecisionNode();
         ArrayList<Integer> indices;
         int dataSize = currentAttributes.size();
+        targetAttribute.setLog(this.log);
+        String msg;
         Node root  = new Node();
+        msg= "Our target attribute is currently:  " + targetAttribute.printData();
+        log.Log("buildTree", msg);
+        this.currentDepth = currentDepth;
         if( allExamplesPositive(targetAttribute) || currentAttributes.isEmpty() || depthReached(currentDepth) ){
+            msg= "All examples is target are either positive or the current Attributes array is empty or the max depth has been reached";
+            log.Log("buildTree", msg);
             String value = targetAttribute.findMode(targetAttribute.getUniqueElements());
             decision_data =  new DecisionNode(targetAttribute, value);
             root.setData(decision_data);
+            msg= "Value to be returned is :  " + value;
+            log.Log("buildTree", msg);
 
         }else{
-            if(this.randomRatio != 0){
-                int randomSize = dataSize / this.randomRatio;
-                // if(randomSize < 3) randomSize = 3;
-                indices = Util.getRandomInts(0, dataSize, randomSize  );
-                currentAttributes = MLUtils.getReadersFromIndexes(indices, currentAttributes);
+            if(this.randomRatio != 0.0){
+                Double randomS = Math.floor(Double.valueOf(dataSize) * Double.valueOf(this.randomRatio));
+                int randomSize = randomS.intValue();
+                if( randomSize < dataSize){
+                    // if(randomSize < 3) randomSize = 3;
+                    indices = Util.getRandomInts(0, dataSize, randomSize  );
+                    currentAttributes = MLUtils.getReadersAtIndex(indices, currentAttributes);
+                }
+
             }
 
 
             DataReader bestAttribute = getBestAttribute(currentAttributes, targetAttribute);
-
+            msg= "New best attribute is:  " + bestAttribute.printData();
+            log.Log("buildTree", msg);
             HashMap<String, ArrayList> attributeValues =  bestAttribute.getUniqueCounts();
             Iterator space = attributeValues.entrySet().iterator();
             String parent_mode = targetAttribute.findMode(targetAttribute.getUniqueElements());
+            msg= "Parent mode is currently:  " + parent_mode;
+            log.Log("buildTree", msg);
+            int col = bestAttribute.getColumnNumber();
+            //currentAttributes.remove(col);
+
+            root.setColumn(col);
 
             while (space.hasNext()) {
 
@@ -145,22 +181,31 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
 
                 ArrayList<String> targetSpace =  targetAttribute.getDataAtIndexes(indexes);
 
-                if(targetSpace.isEmpty()){
+                if(targetSpace.isEmpty()  ){
+                    msg= "No more splits to be made as target no values exist for target of size: " + targetSpace.size();
+                    log.Log("buildTree", msg);
                     DecisionNode child_data = new DecisionNode(targetAttribute, parent_mode);
                     child.setData(child_data);
                     child.setBranch(key);
-                    root.addChild(child);
-                }else{
-                    currentAttributes.remove(bestAttribute);
-                    ArrayList<DataReader> newCurrentAttributes = MLUtils.getReadersFromIndexes(indexes,this.Attributes);
 
+                    root.addChild(child);
+
+                    msg = "Current depth is updated to: " + currentDepth;
+                    log.Log("buildTree", msg);
+
+                }else{
+                    msg = "Current master Attributes List size is: " + this.Attributes.size();
+                    log.Log("buildTree", msg);
+                    currentAttributes.remove(bestAttribute);
+
+                    ArrayList<DataReader> newCurrentAttributes = MLUtils.getReadersFromIndexes(indexes, currentAttributes);
                     DataReader newTargetAttribute = MLUtils.trimIndexesFromAttributes(indexes, targetAttribute);
-                     currentDepth += 1;
-                    child = buildTree(newCurrentAttributes, newTargetAttribute, currentDepth);
+                    msg = "Current depth is updated to: " + currentDepth;
+                    log.Log("buildTree", msg);
+                    child = buildTree(newCurrentAttributes, newTargetAttribute, currentDepth + 1);
                     child.setBranch(key);
                     root.addChild(child);
                 }
-
 
             }
 
@@ -196,14 +241,17 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
         if(tree.getChildren().size() == 0 ) {
             return tree.getData().getLabel();
         }else{
+            index = tree.getColumn();
+
             ArrayList<Node> children = tree.getChildren();
             for(int i = 0; i < children.size() ; i ++){
-                cols.contains(children.get(i).getBranch());
+                //cols.contains(children.get(i).getBranch());
                 tree = children.get(i);
-                index = cols.indexOf(children.get(i).getBranch());
-                cols.remove(index);
-                classification = Classify(cols, tree);
-                break;
+                if( cols.get(index).equals(tree.getBranch())){
+                    //cols.remove(tree.getBranch());
+                    return classification = Classify(cols, tree);
+                    //break;
+                }
             }
         }
 
@@ -218,14 +266,14 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
         double distribution;
         HashMap<String, ArrayList> instanceSpace =  dr.getUniqueCounts();
         int data_size = dr.getData().size();
-        double relative_remainder, remainder = 0;
+        double relative_remainder, remainder = 0.0;
         Iterator space = instanceSpace.entrySet().iterator();
 
         while (space.hasNext()) {
             HashMap.Entry entry = (HashMap.Entry) space.next();
             String key = (String)entry.getKey();
             ArrayList<Integer> value = (ArrayList<Integer>) entry.getValue();
-            distribution = value.size() / data_size;
+            distribution = Double.valueOf(value.size()) / Double.valueOf(data_size);
 
             HashMap<String, ArrayList> goal_vals = this.GoalAttribute.getHashAtIndexes(value);
             relative_remainder = calculateEntropy(goal_vals);
@@ -234,15 +282,15 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
 
             remainder += remainder;
 
-            System.out.println("Key = " + key + ", Value = " + value);
+            //System.out.println("Key = " + key + ", Value = " + value);
         }
         return remainder;
     }
 
     public double CalculateGain(DataReader dr){
         double gain = 0.0;
-
-        gain = calculateEntropy(MLUtils.getRowsinList(dr.getUniqueCounts(), this.GoalAttribute)) - CalculateRemainder(dr);
+        double remainder  =CalculateRemainder(dr);
+        gain = calculateEntropy(MLUtils.getRowsinList(dr.getUniqueCounts(), this.GoalAttribute)) - remainder;
 
         return gain;
     }
@@ -259,9 +307,9 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
         }
 
         for (ArrayList value : instanceClass.values()) {
-            distribution = value.size() / totalInstances;
+            distribution = Double.valueOf(value.size()) / Double.valueOf(totalInstances);
             logVal = Math.log(distribution)/Math.log(2);
-            t = - ( distribution * logVal) + t;
+            t = -1 * ( distribution * logVal) + t;
 
         }
 
@@ -273,9 +321,9 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
 
 
     public DataReader getBestAttribute(ArrayList<DataReader> Attributes, DataReader GoalAttribute){
-        this.Attributes = Attributes;
-        this.GoalAttribute = GoalAttribute;
-        double gain, maxGain = -20;
+        //this.Attributes = Attributes;
+        //this.GoalAttribute = GoalAttribute;
+        double gain, maxGain = -20.0;
         int indexOfBest = 0;
         if (Attributes.size()== 0) return null;
 

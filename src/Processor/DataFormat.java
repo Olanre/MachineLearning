@@ -15,6 +15,7 @@ import java.util.HashMap;
 public class DataFormat implements  DataReader{
     private ArrayList<String> Data;
     private DataProcessor.DataType type;
+    private int ColumnNumber;
     Logger log;
 
 
@@ -24,16 +25,32 @@ public class DataFormat implements  DataReader{
         this.type = newtype;
     }
 
+    public DataFormat(ArrayList<String> newData, DataProcessor.DataType newtype, int ColNumber){
+        this.Data = newData;
+        this.type = newtype;
+        this.ColumnNumber = ColNumber;
+    }
+
     public DataFormat(DataFormat newData){
         this.Data = (ArrayList) newData.getData().clone();
         this.type = newData.type;
+        this.ColumnNumber = newData.getColumnNumber();
     }
 
     public DataFormat(DataReader newData){
         this.Data = (ArrayList) newData.getData().clone();
         this.type = newData.getType();
+        this.ColumnNumber = newData.getColumnNumber();
+
     }
 
+    public int getColumnNumber() {
+        return ColumnNumber;
+    }
+
+    public void setColumnNumber(int columnNumber) {
+        ColumnNumber = columnNumber;
+    }
 
     public Logger getLog() {
         return log;

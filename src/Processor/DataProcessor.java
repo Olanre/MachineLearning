@@ -27,7 +27,7 @@ public class DataProcessor {
     Logger log;
     private boolean missingColumns;
     private ArrayList<DataFormat> DataSet;
-    private ArrayList<DataReader> testData, trainingData, verificationDate;
+    private ArrayList<DataReader> testData, trainingData, verificationData;
     private int TargetCol;
 
 
@@ -96,9 +96,8 @@ public class DataProcessor {
     public void setTrainingAndTest(){
         Double limit;
         int size;
-        String temp_data;
-        DataType temp_type;
-        ArrayList<DataReader> training_data = new ArrayList<>();
+        int i;
+        ArrayList<DataReader> temp_data = new ArrayList<>();
         String msg = "About to set training and Test Data for DataProcessor";
         log.Log("setTrainingAndTest", msg);
         DataFormat df = this.DataSet.get(0);
@@ -108,59 +107,45 @@ public class DataProcessor {
         limit = size * (this.TrainingRatio/10.0);
         msg = "size of the limited number of rows to be retrieved is:  " + limit;
         log.Log("getTrainingData", msg);
-        ArrayList<Integer> indexes = Util. getRandomInts(0, size, limit.intValue());
-        for (int i = 0; i < this.DataSet.size(); i++){
+        ArrayList<Integer> trainingIndexes = Util. getRandomInts(0, size - 1, limit.intValue());
+        ArrayList<Integer> testIndexes  = new ArrayList<>();
+
+        for (i = 0; i < this.DataSet.size(); i++){
 
             DataReader dr = new DataFormat(this.DataSet.get(i));
-            training_data.add(dr);
+            dr.setLog(this.log);
+            log.Log("getVerificationData", dr.printData());
+            temp_data.add(dr);
+
+
         }
 
-        trainingData = MLUtils.getReadersFromIndexes(indexes, training_data );
+        for( int j = 0; j < size; j ++){
+            if(!trainingIndexes.contains(j)){
+                testIndexes.add(j);
+                msg = String.format("Added to the test Data the index integer:  %s ", String.valueOf(j));
+                log.Log("setTrainingAndTest", msg);
+            }
+        }
+
+        trainingData = MLUtils.getReadersFromIndexes(trainingIndexes, temp_data );
+
+        testData = MLUtils.getReadersFromIndexes(testIndexes, temp_data );
+
+        msg = ">> Leaving setTrainingAndTest for DataProcessor";
+        log.Log("setTrainingAndTest", msg);
 
 
     }
     public ArrayList<DataReader> getTrainingData(){
-        double limit, size;
-        String temp_data;
-        DataType temp_type;
-        ArrayList<DataReader> training_data = new ArrayList<>();
         String msg = "About to get training Data for DataProcessor";
         log.Log("getTrainingData", msg);
 
+        setTrainingAndTest();
+
         //int k = 0;
 
-        for (int i = 0; i < this.DataSet.size(); i++){
-            //if (i == getTargetCol()) continue;
-            //k++;
-
-            DataFormat df = this.DataSet.get(i);
-            size = df.getData().size();
-            msg = " total size of the rows is " + size;
-            log.Log("getTrainingData", msg);
-            limit = size * (this.TrainingRatio/10.0);
-            msg = "size of the limited number of rows to be retrieved is:  " + limit;
-            log.Log("getTrainingData", msg);
-            ArrayList<String> temp = new ArrayList<String>();
-            temp_type = df.getType();
-
-            for(int j = 0; j < limit; j++){
-
-                temp_data = df.getData().get(j);
-                temp.add(j, temp_data);
-                msg = String.format("Adding new row: %s at index: %s in column: %s: " , temp_data, String.valueOf(j), String.valueOf(i) );
-                log.Log("getTrainingData", msg);
-
-            }
-
-            DataReader dr = new DataFormat(temp, temp_type);
-            dr.setLog(this.log);
-            log.Log("getTrainingData", dr.printData());
-
-            training_data.add(  dr);
-            msg = "Adding new column in data";
-            log.Log("getTrainingData", msg);
-        }
-        return training_data;
+        return this.trainingData;
     }
 
     public DataReader getTargetColumn(){
@@ -172,7 +157,7 @@ public class DataProcessor {
         for (int i = 0; i < this.DataSet.size(); i++){
             if ( getTargetCol() == i) {
                 DataFormat df = this.DataSet.get(i);
-                target_col = new DataFormat(df.getData(), df.getType());
+                target_col = new DataFormat(df.getData(), df.getType(), i);
                 target_col.setLog(this.log);
                 msg = "Retireved the targetColumn from the DataSet, printing out";
                 log.Log("getTargetColumn", msg);
@@ -180,7 +165,7 @@ public class DataProcessor {
             }
         }
 
-        msg = ">> Entering getTargetColumn for DataProcessor";
+        msg = ">> Leaving getTargetColumn for DataProcessor";
         log.Log("getTargetColumn", msg);
         return target_col;
     }
@@ -188,17 +173,16 @@ public class DataProcessor {
 
     public ArrayList<DataReader> getVerificationData(){
 
-        double limit, size, row_list;
+        double limit,  row_list;
         int i;
         String temp_data;
         ArrayList<DataReader> verification_data = new ArrayList<>();
         String msg = "<< Entering getVerificationData for DataProcessor";
         log.Log("getVerificationData", msg);
 
-        size = this.DataSet.get(0).getData().size();
-        row_list = size * (this.TrainingRatio/10.0);
+        row_list = this.trainingData.get(0).getData().size();
         limit = row_list / 5;
-        msg = String.format("Noted that the size of the total training data set is :%s out of a possible: %s values. Amount used for this verification Run is %s ", String.valueOf(row_list), size, String.valueOf(limit));
+        msg = String.format("Noted that the size of the total training data set is :%s. Amount used for this verification Run is %s ", String.valueOf(row_list), String.valueOf(limit));
         log.Log("getVerificationData", msg);
 
         if(getCrossVerificationIndex() + 1 >= row_list)  setCrossVerificationIndex(0);
@@ -241,41 +225,13 @@ public class DataProcessor {
     }
 
     public ArrayList<DataReader> getTestData(){
-        Double  row_list;
-        int size;
-        String temp_data;
-        ArrayList<DataReader> test_data = new ArrayList<>();
-        size = this.DataSet.get(0).getData().size();
-        row_list = size * (this.TestRatio/10.0);
-        int i = size - row_list.intValue();
+
+
         String msg = "<< Entering getTestData for DataProcessor";
         log.Log("getVerificationData", msg);
+        setTrainingAndTest();
+        ArrayList<DataReader> test_data = MLUtils.ColtoRowMajor(this.testData);
 
-        msg = String.format("Noted that the size of the total test data set is : %s. With starting position of %s ", String.valueOf(row_list), String.valueOf(i));
-        log.Log("getTestData", msg);
-
-        //must convert from column major to row major
-        for (; i < size; i++){
-
-            ArrayList<String> temp = new ArrayList<String>();
-            for(int j = 0; j < this.DataSet.size(); j++){
-                //if (j == getTargetCol()) continue;
-
-                DataFormat df = this.DataSet.get(j);
-                temp_data = df.getData().get(i);
-                temp.add(j, temp_data);
-                msg = String.format("Adding new column: %s at index: %s in row: %s: " , temp_data, String.valueOf(j), String.valueOf(i) );
-                log.Log("getTestData", msg);
-            }
-
-            DataReader dr = new DataFormat(temp, DataType.STRING);
-            dr.setLog(this.log);
-            log.Log("getTestData", dr.printData());
-            test_data.add( dr);
-            msg = String.format("Adding new row in data at index %s", String.valueOf(i));
-            log.Log("getTestData", msg);
-
-        }
         msg = ">> Leaving getTestData for DataProcessor";
         log.Log("getTestData", msg);
         return test_data;
@@ -365,7 +321,7 @@ public class DataProcessor {
                     tmp_col.add(j, val);
 
                 }
-                newCol = new DataFormat(tmp_col, DataType.STRING);
+                newCol = new DataFormat(tmp_col, DataType.STRING, i);
                 newCol.setLog(this.log);
                 newCol = preProcess( newCol, i);
                 msg = String.format("Final Data Column after preprocessing is: %s", newCol.printData());
@@ -373,6 +329,7 @@ public class DataProcessor {
 
                 this.DataSet.add(newCol);
             }
+            setTrainingAndTest();
 
 
         } catch (Exception e) {

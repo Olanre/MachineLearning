@@ -1,0 +1,330 @@
+/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/bin/java -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:57068,suspend=y,server=n -Dfile.encoding=UTF-8 -classpath "/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/deploy.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/CmpCrmf.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/IBMSecureRandom.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/cldrdata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/dnsns.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/gskikm.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmcmsprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmjcefips.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmjceprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmkeycert.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmpkcs11impl.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmsaslprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmxmlcrypto.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmxmldsigprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmxmlencprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/jaccess.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/jfxrt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/localedata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/nashorn.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/sunec.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/sunjce_provider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/sunpkcs11.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/xmlencfw.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/zipfs.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/javaws.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/jfxswt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/management-agent.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/plugin.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/xmldsigfw.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/ant-javafx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/dt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/ibmorbtools.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/javafx-mx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/jconsole.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/packager.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/sa-jdi.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/tools.jar:/Users/olanre/Documents/CS6735/Code/out/production/Code:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar" DataExperiment.Experiment
+Connected to the target VM, address: '127.0.0.1:57068', transport: 'socket'
+[2018/12/03 03:00:22] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+/Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup File Created in Project root directory
+[2018/12/03 03:01:05] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/03 03:01:05] [MLEngine] [DEBUG] [runVerification] << Entering runVerification for MlEngine 
+[2018/12/03 03:01:05] [MLEngine] [DEBUG] [runVerification] About to perform verification runs on algorithm: ID3 
+ 
+[2018/12/03 03:01:06] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 277 
+ 
+[2018/12/03 03:01:06] [MLEngine] [DEBUG] [runVerification] End of run for verification: 0. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 98.91696750902527  
+[2018/12/03 03:01:08] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 277 
+ 
+[2018/12/03 03:01:08] [MLEngine] [DEBUG] [runVerification] End of run for verification: 1. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 95.30685920577618  
+[2018/12/03 03:01:09] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 277 
+ 
+[2018/12/03 03:01:09] [MLEngine] [DEBUG] [runVerification] End of run for verification: 2. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 87.36462093862815  
+[2018/12/03 03:01:11] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 277 
+ 
+[2018/12/03 03:01:11] [MLEngine] [DEBUG] [runVerification] End of run for verification: 3. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 91.69675090252709  
+[2018/12/03 03:01:13] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 274 
+ 
+[2018/12/03 03:01:13] [MLEngine] [DEBUG] [runVerification] End of run for verification: 4. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 89.41605839416059  
+[2018/12/03 03:01:13] [MLEngine] [DEBUG] [runVerification] End of runs. The  average accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 92.54025139002346  
+
+
+ 
+[2018/12/03 03:01:13] [MLEngine] [DEBUG] [runVerification] >> Leaving runVerification for MlEngine 
+[2018/12/03 03:01:13] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/03 03:01:18] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:01:18] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 03:01:18] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 91.04046242774567 
+[2018/12/03 03:01:23] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:01:23] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 03:01:23] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 91.32947976878613 
+[2018/12/03 03:01:27] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:01:27] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 03:01:27] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 91.90751445086705 
+[2018/12/03 03:01:32] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:01:32] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 03:01:32] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 90.46242774566474 
+[2018/12/03 03:01:37] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:01:37] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 03:01:37] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 93.35260115606935 
+[2018/12/03 03:01:41] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:01:41] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 03:01:41] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 93.64161849710982 
+[2018/12/03 03:01:46] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:01:46] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 03:01:46] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 92.77456647398844 
+[2018/12/03 03:01:50] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:01:50] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 03:01:50] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 91.90751445086705 
+[2018/12/03 03:01:54] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:01:54] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 03:01:54] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 94.50867052023122 
+[2018/12/03 03:01:59] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:01:59] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 03:01:59] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 93.35260115606935 
+[2018/12/03 03:01:59] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 92.42774566473989 
+
+
+ 
+[2018/12/03 03:01:59] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+/Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup File Created in Project root directory
+[2018/12/03 03:02:21] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/03 03:02:21] [MLEngine] [DEBUG] [runVerification] << Entering runVerification for MlEngine 
+[2018/12/03 03:02:21] [MLEngine] [DEBUG] [runVerification] About to perform verification runs on algorithm: ID3 
+ 
+[2018/12/03 03:02:22] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 112 
+ 
+[2018/12/03 03:02:22] [MLEngine] [DEBUG] [runVerification] End of run for verification: 0. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 95.53571428571429  
+[2018/12/03 03:02:22] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 112 
+ 
+[2018/12/03 03:02:22] [MLEngine] [DEBUG] [runVerification] End of run for verification: 1. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 99.10714285714286  
+[2018/12/03 03:02:23] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 112 
+ 
+[2018/12/03 03:02:23] [MLEngine] [DEBUG] [runVerification] End of run for verification: 2. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 91.96428571428571  
+[2018/12/03 03:02:24] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 112 
+ 
+[2018/12/03 03:02:24] [MLEngine] [DEBUG] [runVerification] End of run for verification: 3. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 97.32142857142857  
+[2018/12/03 03:02:25] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 111 
+ 
+[2018/12/03 03:02:25] [MLEngine] [DEBUG] [runVerification] End of run for verification: 4. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 98.1981981981982  
+[2018/12/03 03:02:25] [MLEngine] [DEBUG] [runVerification] End of runs. The  average accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 96.42535392535393  
+
+
+ 
+[2018/12/03 03:02:25] [MLEngine] [DEBUG] [runVerification] >> Leaving runVerification for MlEngine 
+[2018/12/03 03:02:25] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/03 03:02:27] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:02:27] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 03:02:27] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 95.71428571428572 
+[2018/12/03 03:02:30] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:02:30] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 03:02:30] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 95.0 
+[2018/12/03 03:02:33] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:02:33] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 03:02:33] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 95.71428571428572 
+[2018/12/03 03:02:35] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:02:35] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 03:02:35] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 95.71428571428572 
+[2018/12/03 03:02:38] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:02:38] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 03:02:38] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 95.71428571428572 
+[2018/12/03 03:02:40] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:02:40] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 03:02:40] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 97.85714285714285 
+[2018/12/03 03:02:43] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:02:43] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 03:02:43] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 96.42857142857143 
+[2018/12/03 03:02:46] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:02:46] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 03:02:46] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 94.28571428571428 
+[2018/12/03 03:02:48] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:02:48] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 03:02:48] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 97.14285714285714 
+[2018/12/03 03:02:51] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:02:51] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 03:02:51] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 95.71428571428572 
+[2018/12/03 03:02:51] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 95.92857142857144 
+
+
+ 
+[2018/12/03 03:02:51] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+/Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup File Created in Project root directory
+[2018/12/03 03:02:58] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/03 03:02:58] [MLEngine] [DEBUG] [runVerification] << Entering runVerification for MlEngine 
+[2018/12/03 03:02:58] [MLEngine] [DEBUG] [runVerification] About to perform verification runs on algorithm: ID3 
+ 
+[2018/12/03 03:02:59] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 54 
+ 
+[2018/12/03 03:02:59] [MLEngine] [DEBUG] [runVerification] End of run for verification: 0. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 81.48148148148148  
+[2018/12/03 03:02:59] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 54 
+ 
+[2018/12/03 03:02:59] [MLEngine] [DEBUG] [runVerification] End of run for verification: 1. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 75.92592592592592  
+[2018/12/03 03:02:59] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 54 
+ 
+[2018/12/03 03:02:59] [MLEngine] [DEBUG] [runVerification] End of run for verification: 2. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 77.77777777777779  
+[2018/12/03 03:02:59] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 54 
+ 
+[2018/12/03 03:02:59] [MLEngine] [DEBUG] [runVerification] End of run for verification: 3. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 81.48148148148148  
+[2018/12/03 03:02:59] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 52 
+ 
+[2018/12/03 03:02:59] [MLEngine] [DEBUG] [runVerification] End of run for verification: 4. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 82.6923076923077  
+[2018/12/03 03:02:59] [MLEngine] [DEBUG] [runVerification] End of runs. The  average accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 79.87179487179486  
+
+
+ 
+[2018/12/03 03:02:59] [MLEngine] [DEBUG] [runVerification] >> Leaving runVerification for MlEngine 
+[2018/12/03 03:02:59] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/03 03:03:00] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:03:00] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 03:03:00] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 80.88235294117648 
+[2018/12/03 03:03:00] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:03:00] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 03:03:00] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 85.29411764705883 
+[2018/12/03 03:03:01] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:03:01] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 03:03:01] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 77.94117647058823 
+[2018/12/03 03:03:01] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:03:01] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 03:03:01] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 89.70588235294117 
+[2018/12/03 03:03:02] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:03:02] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 03:03:02] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 86.76470588235294 
+[2018/12/03 03:03:02] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:03:02] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 03:03:02] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 82.35294117647058 
+[2018/12/03 03:03:03] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:03:03] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 03:03:03] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 82.35294117647058 
+[2018/12/03 03:03:03] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:03:03] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 03:03:03] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 86.76470588235294 
+[2018/12/03 03:03:04] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:03:04] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 03:03:04] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 75.0 
+[2018/12/03 03:03:04] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:03:04] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 03:03:04] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 80.88235294117648 
+[2018/12/03 03:03:04] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 82.79411764705881 
+
+
+ 
+[2018/12/03 03:03:04] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+/Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup File Created in Project root directory
+[2018/12/03 03:08:58] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/03 03:08:58] [MLEngine] [DEBUG] [runVerification] << Entering runVerification for MlEngine 
+[2018/12/03 03:08:58] [MLEngine] [DEBUG] [runVerification] About to perform verification runs on algorithm: ID3 
+ 
+[2018/12/03 03:09:16] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 1300 
+ 
+[2018/12/03 03:09:16] [MLEngine] [DEBUG] [runVerification] End of run for verification: 0. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 57.230769230769226  
+[2018/12/03 03:09:28] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 1300 
+ 
+[2018/12/03 03:09:28] [MLEngine] [DEBUG] [runVerification] End of run for verification: 1. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 4.3076923076923075  
+[2018/12/03 03:09:42] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 1300 
+ 
+[2018/12/03 03:09:42] [MLEngine] [DEBUG] [runVerification] End of run for verification: 2. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 0.0  
+[2018/12/03 03:09:54] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 1300 
+ 
+[2018/12/03 03:09:54] [MLEngine] [DEBUG] [runVerification] End of run for verification: 3. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 6.461538461538462  
+[2018/12/03 03:10:06] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 1299 
+ 
+[2018/12/03 03:10:06] [MLEngine] [DEBUG] [runVerification] End of run for verification: 4. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 17.321016166281755  
+[2018/12/03 03:10:06] [MLEngine] [DEBUG] [runVerification] End of runs. The  average accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 17.06420323325635  
+
+
+ 
+[2018/12/03 03:10:06] [MLEngine] [DEBUG] [runVerification] >> Leaving runVerification for MlEngine 
+[2018/12/03 03:10:06] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/03 03:11:07] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:11:07] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 03:11:07] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 20.307692307692307 
+[2018/12/03 03:12:07] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:12:07] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 03:12:07] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 21.29230769230769 
+[2018/12/03 03:13:09] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:13:09] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 03:13:09] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 18.276923076923076 
+[2018/12/03 03:14:10] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:14:10] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 03:14:10] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 19.507692307692306 
+[2018/12/03 03:15:06] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:15:06] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 03:15:06] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 19.507692307692306 
+[2018/12/03 03:16:08] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:16:08] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 03:16:08] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 20.73846153846154 
+[2018/12/03 03:17:09] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:17:09] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 03:17:09] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 20.06153846153846 
+[2018/12/03 03:18:11] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:18:11] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 03:18:11] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 20.861538461538462 
+[2018/12/03 03:19:05] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:19:05] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 03:19:05] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 19.815384615384616 
+[2018/12/03 03:20:00] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: ID3 
+ 
+[2018/12/03 03:20:00] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 03:20:00] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 19.323076923076922 
+[2018/12/03 03:20:00] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: ID3 on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 19.969230769230766 
+
+
+ 
+Disconnected from the target VM, address: '127.0.0.1:57068', transport: 'socket'
+
+Process finished with exit code 0
+

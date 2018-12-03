@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.jar.Attributes;
 
 /**
  * Created by olanre on 2018-11-02.
@@ -26,20 +27,25 @@ public class MLUtils {
     public static DataReader trimIndexesFromAttributes(ArrayList indexesToKeep, DataReader Attribute){
         ArrayList<String> newData = new ArrayList<>();
         DataReader newReader;
-
+        int col;
         newData =  (ArrayList) Attribute.getDataAtIndexes(indexesToKeep).clone();
         DataProcessor.DataType dt = Attribute.getType();
-        newReader = new DataFormat(newData, dt);
+        col = Attribute.getColumnNumber();
+        newReader = new DataFormat(newData, dt, col);
 
         return newReader;
 
     }
 
     public static ArrayList<DataReader> getReadersFromIndexes(ArrayList indexesToKeep, ArrayList<DataReader> Attributes){
+        Logger log = initLogger();
+
         ArrayList<DataReader> newAttributes = new ArrayList<>();
         for(int i = 0; i < Attributes.size(); i++){
             DataReader newAttribute = MLUtils.trimIndexesFromAttributes( indexesToKeep,  Attributes.get(i));
             newAttributes.add(i, newAttribute);
+            newAttribute.setLog(log);
+            log.Log("getReadersFromIndexes", newAttribute.printData());
         }
 
         return newAttributes;
@@ -57,6 +63,23 @@ public class MLUtils {
             Rows.add(i, data);
         }
         return Rows;
+    }
+
+    public static ArrayList<DataReader> getReadersAtIndex( ArrayList indexesToKeep, ArrayList<DataReader> Attributes){
+        Logger log = initLogger();
+        ArrayList<DataReader> newAttributes = new ArrayList<>();
+
+        for(int i = 0; i < Attributes.size(); i++){
+
+            DataReader dr = new DataFormat(Attributes.get(i));
+            dr.setLog(log);
+            log.Log("getVerificationData", dr.printData());
+            newAttributes.add(dr);
+
+
+        }
+
+        return newAttributes;
     }
 
 
@@ -161,7 +184,7 @@ public class MLUtils {
             log.Log("preProcess", msg);
             newData = normalizeWeight(dr);
 
-            dr = new DataFormat(newData,DataProcessor.DataType.DOUBLE );
+            dr = new DataFormat(newData,DataProcessor.DataType.DOUBLE, dr.getColumnNumber() );
             dr.setLog(log);
             log.Log("preProcess", dr.printData());
 
@@ -171,7 +194,7 @@ public class MLUtils {
             log.Log("preProcess", msg);
 
             newData = sparification( dr);
-            dr = new DataFormat(newData,DataProcessor.DataType.STRING );
+            dr = new DataFormat(newData,DataProcessor.DataType.STRING , dr.getColumnNumber());
             dr.setLog(log);
             log.Log("preProcess", dr.printData());
 
@@ -187,7 +210,7 @@ public class MLUtils {
         String msg;
         msg = "<< Entering preProcess for MlUtils";
         log.Log("preProcess", msg);
-
+        int Col;
         //must convert from column major to row major
         String temp_data;
         ArrayList<DataReader> row_major = new ArrayList<>();
@@ -199,7 +222,7 @@ public class MLUtils {
             for(int j = 0; j < DataSet.size(); j++){
 
                 DataReader df = DataSet.get(j);
-                //DataReader df = new DataFormat( DataSet.get(j));
+                Col = df.getColumnNumber();
                 temp_data = df.getData().get(i);
                 msg = String.format("Adding new column: %s at index: %s in row: %s: " , temp_data, String.valueOf(j), String.valueOf(i) );
                 log.Log("ColtoRowMajor", msg);

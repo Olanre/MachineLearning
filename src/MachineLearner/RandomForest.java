@@ -19,9 +19,9 @@ public class RandomForest  extends Bagger implements MLAlgorithm{
 
     int bags = 50;
     int sampleRatio = 10;
-    int splitRatio = 3;
+    double splitRatio = 0.3;
 
-    public RandomForest(int  splitRatio, int sampleRatio){
+    public RandomForest(double  splitRatio, int sampleRatio){
 
         super( sampleRatio);
 

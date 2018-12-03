@@ -14,6 +14,9 @@ public class Node {
 
     private String branch;
 
+    private int Column;
+
+
     public Node(DecisionNode data) {
         this.data = data;
     }
@@ -33,7 +36,7 @@ public class Node {
     }
 
     public void setParent(Node parent) {
-        parent.addChild(this);
+        //parent.addChild(this);
         this.parent = parent;
     }
 
@@ -62,6 +65,14 @@ public class Node {
 
     public void setBranch(String branch) {
         this.branch = branch;
+    }
+
+    public int getColumn() {
+        return Column;
+    }
+
+    public void setColumn(int column) {
+        Column = column;
     }
 
     public boolean isRoot() {

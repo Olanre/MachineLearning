@@ -171,18 +171,24 @@ public class MLEngine {
 
         MLAlgorithm algo = ProcessorToAlgo.get(this.processor);
 
+
         for (int i =0; i < this.t_fold; i++) {
 
             testData = this.processor.getTestData();
-            testResult = algo.ClassifySet(testData);
             colData = MLUtils.RowToColMajor(testData);
             expectedResult = colData.get(target).getData();
-            msg = String.format("About to run tests on algorithm: %s \n", algo.getAlgorithmName());
+            colData.remove(target);
+            testData = MLUtils.ColtoRowMajor(colData);
+            testResult = algo.ClassifySet(testData);
 
+            msg = String.format("About to run tests on algorithm: %s \n", algo.getAlgorithmName());
             log.Log("runTest", msg);
             accuracy  = 0.0;
             correctClassified = 0;
             error = 0;
+
+            msg = String.format("About to perform classify examples of size: %s \n" , String.valueOf(expectedResult.size()));
+            log.Log("runTest", msg);
             for (int j = 0; j < expectedResult.size(); j++) {
                 String classified = testResult.get(j);
                 String expected = expectedResult.get(j);

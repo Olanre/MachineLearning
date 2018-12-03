@@ -31,5 +31,9 @@ public interface DataReader {
 
     public ArrayList<Double> getASDouble();
 
+    public int getColumnNumber();
+
+    public void setColumnNumber(int columnNumber);
+
 
     }

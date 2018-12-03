@@ -31,9 +31,11 @@ public class Experiment {
 
 
         ArrayList<MLAlgorithm> algorithms = new ArrayList<>();
-        //algorithms.add(new ID3Learner(0));
-        algorithms.add(new NaiveBayes());
-        algorithms.add(new NaiveBayesBagging(5));
+        algorithms.add(new ID3Learner(0.0));
+        //algorithms.add(new RandomForest(0.0, 10));
+
+        //algorithms.add(new NaiveBayes());
+        //algorithms.add(new NaiveBayesBagging(10));
         //algorithms.add(new KNearestNeighbour());
 
 
@@ -43,7 +45,7 @@ public class Experiment {
                 MLEngine engine = new MLEngine(algorithms.get(i), processors.get(j), 5, 10);
                 engine.buildClassification();
                 engine.runVerification();
-                //engine.runTest();
+                engine.runTest();
             }
 
         }

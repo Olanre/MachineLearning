@@ -16,16 +16,23 @@ public class Util {
         }
 
         Random r = new Random();
-
-        for (int i = 0; i < count; i++) {
-            ranInts.add(i, r.nextInt((max - min) + 1) + min);
+        int i = 0;
+        while(i < count){
+            int newRan = r.nextInt((max - min) + 1) + min;
+            if(!ranInts.contains(newRan)){
+                ranInts.add(i, newRan);
+                i++;
+            }
         }
+
         return ranInts;
     }
 
     public static String findMode(ArrayList<String> Arr){
         HashMap<String,Integer> hashMap = new HashMap<String,Integer>();
         String str;
+
+        if(Arr.size() == 0) return "0";
         String mode = Arr.get(0);
         int max  = 1;
 
@@ -110,6 +117,15 @@ public class Util {
             return false;
         }
         return true;
+    }
+
+    public static List<Double>  getKeysFromMap( HashMap<Double, String> map ){
+        List<Double> keys = new ArrayList<>();
+
+        for (Double key : map.keySet()) {
+            keys.add(key);
+        }
+        return keys;
     }
 
     public static boolean isInteger(String s, int radix) {
