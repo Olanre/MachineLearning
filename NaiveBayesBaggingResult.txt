@@ -1,0 +1,324 @@
+
+[2018/12/03 22:00:30] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+/Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup File Created in Project root directory
+[2018/12/03 22:00:59] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/03 22:00:59] [MLEngine] [DEBUG] [runVerification] << Entering runVerification for MlEngine 
+[2018/12/03 22:00:59] [MLEngine] [DEBUG] [runVerification] About to perform verification runs on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:01:02] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 277 
+ 
+[2018/12/03 22:01:02] [MLEngine] [DEBUG] [runVerification] End of run for verification: 0. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 94.22382671480143  
+[2018/12/03 22:01:06] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 277 
+ 
+[2018/12/03 22:01:06] [MLEngine] [DEBUG] [runVerification] End of run for verification: 1. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 79.06137184115524  
+[2018/12/03 22:01:10] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 277 
+ 
+[2018/12/03 22:01:10] [MLEngine] [DEBUG] [runVerification] End of run for verification: 2. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 66.78700361010831  
+[2018/12/03 22:01:14] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 277 
+ 
+[2018/12/03 22:01:14] [MLEngine] [DEBUG] [runVerification] End of run for verification: 3. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 65.34296028880865  
+[2018/12/03 22:01:18] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 274 
+ 
+[2018/12/03 22:01:18] [MLEngine] [DEBUG] [runVerification] End of run for verification: 4. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 60.58394160583942  
+[2018/12/03 22:01:18] [MLEngine] [DEBUG] [runVerification] End of runs. The  average accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 73.19982081214262  
+
+
+ 
+[2018/12/03 22:01:18] [MLEngine] [DEBUG] [runVerification] >> Leaving runVerification for MlEngine 
+[2018/12/03 22:01:18] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/03 22:01:26] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:01:26] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 22:01:26] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 69.65317919075144 
+[2018/12/03 22:01:34] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:01:34] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 22:01:34] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 69.07514450867052 
+[2018/12/03 22:01:43] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:01:43] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 22:01:43] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 69.36416184971098 
+[2018/12/03 22:01:51] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:01:51] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 22:01:51] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 70.8092485549133 
+[2018/12/03 22:02:00] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:02:00] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 22:02:00] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 70.23121387283237 
+[2018/12/03 22:02:10] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:02:10] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 22:02:10] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 68.20809248554913 
+[2018/12/03 22:02:23] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:02:23] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 22:02:23] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 67.63005780346822 
+[2018/12/03 22:02:38] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:02:38] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 22:02:38] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 70.52023121387283 
+[2018/12/03 22:02:53] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:02:53] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 22:02:53] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 72.25433526011561 
+[2018/12/03 22:03:03] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:03:03] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/03 22:03:03] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 69.36416184971098 
+[2018/12/03 22:03:03] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 69.71098265895952 
+
+
+ 
+[2018/12/03 22:03:03] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+/Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup File Created in Project root directory
+[2018/12/03 22:03:38] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/03 22:03:38] [MLEngine] [DEBUG] [runVerification] << Entering runVerification for MlEngine 
+[2018/12/03 22:03:38] [MLEngine] [DEBUG] [runVerification] About to perform verification runs on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:03:42] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 112 
+ 
+[2018/12/03 22:03:42] [MLEngine] [DEBUG] [runVerification] End of run for verification: 0. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 92.85714285714286  
+[2018/12/03 22:03:44] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 112 
+ 
+[2018/12/03 22:03:44] [MLEngine] [DEBUG] [runVerification] End of run for verification: 1. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 98.21428571428571  
+[2018/12/03 22:03:47] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 112 
+ 
+[2018/12/03 22:03:47] [MLEngine] [DEBUG] [runVerification] End of run for verification: 2. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 91.96428571428571  
+[2018/12/03 22:03:50] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 112 
+ 
+[2018/12/03 22:03:50] [MLEngine] [DEBUG] [runVerification] End of run for verification: 3. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 95.53571428571429  
+[2018/12/03 22:03:51] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 111 
+ 
+[2018/12/03 22:03:51] [MLEngine] [DEBUG] [runVerification] End of run for verification: 4. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 99.09909909909909  
+[2018/12/03 22:03:51] [MLEngine] [DEBUG] [runVerification] End of runs. The  average accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 95.53410553410552  
+
+
+ 
+[2018/12/03 22:03:51] [MLEngine] [DEBUG] [runVerification] >> Leaving runVerification for MlEngine 
+[2018/12/03 22:03:51] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/03 22:03:57] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:03:57] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 22:03:57] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 96.42857142857143 
+[2018/12/03 22:04:01] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:01] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 22:04:01] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 93.57142857142857 
+[2018/12/03 22:04:06] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:06] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 22:04:06] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 94.28571428571428 
+[2018/12/03 22:04:11] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:11] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 22:04:11] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 97.14285714285714 
+[2018/12/03 22:04:16] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:16] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 22:04:16] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 96.42857142857143 
+[2018/12/03 22:04:20] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:20] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 22:04:20] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 96.42857142857143 
+[2018/12/03 22:04:23] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:23] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 22:04:23] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 93.57142857142857 
+[2018/12/03 22:04:25] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:25] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 22:04:25] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 97.14285714285714 
+[2018/12/03 22:04:28] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:28] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 22:04:28] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 95.71428571428572 
+[2018/12/03 22:04:31] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:31] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/03 22:04:31] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 96.42857142857143 
+[2018/12/03 22:04:31] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 95.71428571428572 
+
+
+ 
+[2018/12/03 22:04:31] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+/Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup File Created in Project root directory
+[2018/12/03 22:04:39] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/03 22:04:39] [MLEngine] [DEBUG] [runVerification] << Entering runVerification for MlEngine 
+[2018/12/03 22:04:39] [MLEngine] [DEBUG] [runVerification] About to perform verification runs on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:40] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 54 
+ 
+[2018/12/03 22:04:40] [MLEngine] [DEBUG] [runVerification] End of run for verification: 0. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 100.0  
+[2018/12/03 22:04:40] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 54 
+ 
+[2018/12/03 22:04:40] [MLEngine] [DEBUG] [runVerification] End of run for verification: 1. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 100.0  
+[2018/12/03 22:04:41] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 54 
+ 
+[2018/12/03 22:04:41] [MLEngine] [DEBUG] [runVerification] End of run for verification: 2. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 72.22222222222221  
+[2018/12/03 22:04:41] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 54 
+ 
+[2018/12/03 22:04:41] [MLEngine] [DEBUG] [runVerification] End of run for verification: 3. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 35.18518518518518  
+[2018/12/03 22:04:41] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 52 
+ 
+[2018/12/03 22:04:41] [MLEngine] [DEBUG] [runVerification] End of run for verification: 4. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 3.8461538461538463  
+[2018/12/03 22:04:41] [MLEngine] [DEBUG] [runVerification] End of runs. The  average accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 62.250712250712255  
+
+
+ 
+[2018/12/03 22:04:41] [MLEngine] [DEBUG] [runVerification] >> Leaving runVerification for MlEngine 
+[2018/12/03 22:04:41] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/03 22:04:43] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:43] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 22:04:43] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 54.41176470588235 
+[2018/12/03 22:04:44] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:44] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 22:04:44] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 45.588235294117645 
+[2018/12/03 22:04:45] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:45] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 22:04:45] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 50.0 
+[2018/12/03 22:04:47] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:47] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 22:04:47] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 47.05882352941176 
+[2018/12/03 22:04:49] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:49] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 22:04:49] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 38.23529411764706 
+[2018/12/03 22:04:51] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:51] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 22:04:51] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 47.05882352941176 
+[2018/12/03 22:04:52] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:52] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 22:04:52] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 44.11764705882353 
+[2018/12/03 22:04:54] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:54] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 22:04:54] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 51.470588235294116 
+[2018/12/03 22:04:56] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:56] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 22:04:56] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 54.41176470588235 
+[2018/12/03 22:04:58] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:04:58] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/03 22:04:58] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 52.94117647058824 
+[2018/12/03 22:04:58] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 48.529411764705884 
+
+
+ 
+[2018/12/03 22:04:58] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+/Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup File Created in Project root directory
+[2018/12/03 22:13:28] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/03 22:13:28] [MLEngine] [DEBUG] [runVerification] << Entering runVerification for MlEngine 
+[2018/12/03 22:13:28] [MLEngine] [DEBUG] [runVerification] About to perform verification runs on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:15:14] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 1300 
+ 
+[2018/12/03 22:15:14] [MLEngine] [DEBUG] [runVerification] End of run for verification: 0. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 88.76923076923077  
+[2018/12/03 22:17:06] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 1300 
+ 
+[2018/12/03 22:17:06] [MLEngine] [DEBUG] [runVerification] End of run for verification: 1. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 90.15384615384615  
+[2018/12/03 22:18:57] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 1300 
+ 
+[2018/12/03 22:18:57] [MLEngine] [DEBUG] [runVerification] End of run for verification: 2. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 73.84615384615385  
+[2018/12/03 22:20:47] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 1300 
+ 
+[2018/12/03 22:20:47] [MLEngine] [DEBUG] [runVerification] End of run for verification: 3. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 14.615384615384617  
+[2018/12/03 22:22:36] [MLEngine] [DEBUG] [runVerification] About to perform classify examples of size: 1299 
+ 
+[2018/12/03 22:22:36] [MLEngine] [DEBUG] [runVerification] End of run for verification: 4. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 17.321016166281755  
+[2018/12/03 22:22:36] [MLEngine] [DEBUG] [runVerification] End of runs. The  average accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 56.941126310179435  
+
+
+ 
+[2018/12/03 22:22:36] [MLEngine] [DEBUG] [runVerification] >> Leaving runVerification for MlEngine 
+[2018/12/03 22:22:36] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/03 22:25:58] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:25:58] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 22:25:58] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 52.246153846153845 
+[2018/12/03 22:29:26] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:29:26] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 22:29:26] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 52.307692307692314 
+[2018/12/03 22:32:59] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:32:59] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 22:32:59] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 51.69230769230769 
+[2018/12/03 22:36:33] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:36:33] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 22:36:33] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 55.38461538461539 
+[2018/12/03 22:40:11] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:40:11] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 22:40:11] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 52.36923076923077 
+[2018/12/03 22:44:03] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:44:03] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 22:44:03] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 53.169230769230765 
+[2018/12/03 22:47:48] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:47:48] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 22:47:48] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 51.38461538461539 
+[2018/12/03 22:51:23] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:51:23] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 22:51:23] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 52.49230769230769 
+[2018/12/03 22:56:17] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 22:56:17] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 22:56:17] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 53.41538461538462 
+[2018/12/03 23:03:47] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: NaiveBayes-Bagging 
+ 
+[2018/12/03 23:03:47] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/03 23:03:47] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 50.95384615384615 
+[2018/12/03 23:03:47] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: NaiveBayes-Bagging on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 52.54153846153846 
+
+

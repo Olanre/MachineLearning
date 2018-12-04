@@ -117,6 +117,7 @@ public class Bagger {
         for( int i = 0; i < this.WeakLearners.size(); i++){
             MLAlgorithm learner = this.WeakLearners.get(i);
             String classification = learner.Classify(cols);
+            if(classification.equals("")) continue;
 
             bagResults.add( classification );
         }

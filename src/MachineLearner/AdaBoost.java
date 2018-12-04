@@ -16,7 +16,7 @@ import javax.xml.crypto.Data;
 public class AdaBoost implements MLAlgorithm {
 
     double[] unitResult;
-    ArrayList<Double> weights, alpha, error;
+    ArrayList<Double> weights, alpha, error = new ArrayList<>();
     int bins = 50;
     private ArrayList<DataReader> Attributes;
     private DataReader GoalAttribute;
@@ -24,8 +24,14 @@ public class AdaBoost implements MLAlgorithm {
     private ArrayList<DataReader> TotalAttributes;
     private ArrayList<ID3Learner> weakLearners;
     public static final String AlgorithmName = "AdaBoost";
+    int sampleRatio = 10;
+
 
     Logger log;
+
+    public AdaBoost( int sampleRatio){
+        this.sampleRatio = sampleRatio;
+    }
 
 
     public void learnData(ArrayList<DataReader> drs, DataReader goal){
@@ -67,20 +73,24 @@ public class AdaBoost implements MLAlgorithm {
     public void buildModel(){
         ArrayList<DataReader> DataBins;
         int limit, discreteClasses, badClassifiers ;
-        int size = this.bins/4;
-        double weightedError, noise, smallAlpha;
+        limit  = this.TotalAttributes.size();
+        int size =  limit/ this.sampleRatio;;
 
+        double weightedError, noise, smallAlpha = 0.0;
+        this.weakLearners = new ArrayList<>();
+        this.alpha = new ArrayList<>();
+        this.error = new ArrayList<>();
+        this.trees  = new ArrayList<>();
 
         discreteClasses = this.GoalAttribute.getUniqueElements().size();
         noise = 1 / discreteClasses;
         double multiClassConstant = Math.log(discreteClasses - 1);
 
-        this.TotalAttributes = MLUtils.ColtoRowMajor(this.Attributes);
         limit  = this.TotalAttributes.size();
         badClassifiers = 0;
 
         for(int i  = 0; i < this.bins; i ++){
-            ArrayList<Integer> randomIndexes = Util.getRandomInts(0, limit, size);
+            ArrayList<Integer> randomIndexes = Util.getRandomInts(0, limit - 1, size);
 
             DataBins = MLUtils.getReadersFromIndexes( randomIndexes, this.Attributes);
             DataReader newGoalAttribute = MLUtils.trimIndexesFromAttributes(randomIndexes, this.GoalAttribute);
@@ -88,26 +98,23 @@ public class AdaBoost implements MLAlgorithm {
             weakLearner.setMaxDepth(1);
             weakLearner.learnData(DataBins, newGoalAttribute);
             Node T = weakLearner.getTree();
-            this.weakLearners.set(i, weakLearner);
+            this.weakLearners.add( weakLearner);
             weightedError = getWeightedSum(weakLearner, T);
-            if ( 1 - weightedError  <= noise){
-                // this is no better than a random guess to skip this classifier.
-                i--;
+            this.trees.add( T);
+            this.error.add( weightedError);
+            smallAlpha = Math.log((1.0 - weightedError)/Math.max(1E-10,weightedError)) + multiClassConstant ;
+            this.alpha.add( smallAlpha);
+            setUpdatedWeightedSum(weightedError, smallAlpha);
+
+            /**if ( 1 - weightedError  <= noise){
+                // this is no better than a random guess!
                 badClassifiers++;
-                continue;
+                i--;
 
             } else {
-                this.trees.add(i, T);
-                this.error.add(i, weightedError);
 
-                if (badClassifiers > 5 || weightedError == 0 ) {
-                    break;
-                }
 
-            }
-            smallAlpha = Math.log((1 - weightedError)/weightedError) + multiClassConstant ;
-            this.alpha.set(i, smallAlpha);
-            setUpdatedWeightedSum(weightedError, smallAlpha);
+            }*/
 
         }
 
@@ -119,7 +126,7 @@ public class AdaBoost implements MLAlgorithm {
         ArrayList<String> tempVals, goalVals;
         DataReader DataBin;
         double weightedError = 0.0;
-        double sum = 0.0;
+        double sum = 1.0;
 
         for(int j = 0; j < limit; j++){
 
@@ -131,7 +138,7 @@ public class AdaBoost implements MLAlgorithm {
 
             if(ClassifiedResult != actualResult) {
                weightedError = weightedError + this.weights.get(j);
-               this.error.set(j, 1.0);
+               this.error.add( 1.0);
             }
             sum += weightedError;
 
@@ -147,15 +154,12 @@ public class AdaBoost implements MLAlgorithm {
         int limit  = this.TotalAttributes.size();
 
         double weightedError = 0.0;
-        double sum = 0.0;
-        for(int j = 0; j < limit; j++){
+        for(int j = 0; j < this.error.size(); j++){
 
             if( this.error.get(j) == 1.0){
                 weightedError = oldWeight * Math.exp(alpha);
-                this.weights.set(j, weightedError);
+                this.weights.add( weightedError);
             }
-            sum += this.weights.get(j);
-
         }
 
     }
@@ -163,17 +167,23 @@ public class AdaBoost implements MLAlgorithm {
 
 
     public void preInit(){
-        double weight  = 1 / this.TotalAttributes.size();
-        int discreteClasses = this.GoalAttribute.getData().size();
 
-        if((discreteClasses % 2) == 0 ){
-            this.bins = (discreteClasses / 2) - 1;
-        }else{
-            this.bins = discreteClasses/ 2;
+        this.weights = new ArrayList<>();
+
+        this.TotalAttributes = MLUtils.ColtoRowMajor(this.Attributes);
+
+        double weight  = 1.0 / Double.valueOf(this.TotalAttributes.size());
+        /** int discreteClasses = this.GoalAttribute.getUniqueElements().size();
+
+        if( discreteClasses  > this.bins ){
+            this.bins = discreteClasses;
         }
 
+        if( this.GoalAttribute.getData().size() < 500){
+            this.bins = this.GoalAttribute.getData().size() / 2;
+        }*/
         for(int i = 0 ; i < this.TotalAttributes.size(); i++){
-            this.weights.add(i, weight);
+            this.weights.add( weight);
 
         }
 
@@ -198,13 +208,15 @@ public class AdaBoost implements MLAlgorithm {
         ArrayList<String> discreteClasses;
 
         int index;
+        double tempAlpha = 0.0;
         discreteClasses = this.GoalAttribute.getUniqueElements();
         HashMap<String, Double> adaResult = Util.createHashFromStrings(discreteClasses, 1.0);
         for(int i  = 0; i < this.bins; i ++) {
             ID3Learner weakLearner = this.weakLearners.get(i);
             Node T = weakLearner.getTree();
             ClassifiedResult = weakLearner.Classify(cols, T);
-            double tempAlpha = adaResult.get(ClassifiedResult);
+            if(ClassifiedResult.equals("")) continue;
+            tempAlpha = adaResult.get(ClassifiedResult);
             tempAlpha *= this.alpha.get(i);
             adaResult.put(ClassifiedResult, tempAlpha);
         }

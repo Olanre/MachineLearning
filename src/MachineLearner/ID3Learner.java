@@ -140,7 +140,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
         if( allExamplesPositive(targetAttribute) || currentAttributes.isEmpty() || depthReached(currentDepth) ){
             msg= "All examples is target are either positive or the current Attributes array is empty or the max depth has been reached";
             log.Log("buildTree", msg);
-            String value = targetAttribute.findMode(targetAttribute.getUniqueElements());
+            String value = targetAttribute.findMode(targetAttribute.getData());
             decision_data =  new DecisionNode(targetAttribute, value);
             root.setData(decision_data);
             msg= "Value to be returned is :  " + value;
@@ -239,23 +239,34 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
         String classification = "";
         int index;
         if(tree.getChildren().size() == 0 ) {
-            return tree.getData().getLabel();
+            classification = tree.getData().getLabel();
+            return classification;
         }else{
             index = tree.getColumn();
 
             ArrayList<Node> children = tree.getChildren();
             for(int i = 0; i < children.size() ; i ++){
-                //cols.contains(children.get(i).getBranch());
                 tree = children.get(i);
                 if( cols.get(index).equals(tree.getBranch())){
-                    //cols.remove(tree.getBranch());
-                    return classification = Classify(cols, tree);
-                    //break;
+                    //cols.remove(index);
+                     classification = Classify(cols, tree);
+                    break;
                 }
+                /**else if(tree.getChildren().size() == 0 ) {
+                        classification = tree.getData().getLabel();
+                        break;
+
+                }*/
+
             }
         }
 
+        if(classification.equals("") && tree.getData() != null) {
 
+             if(tree.getChildren().size() == 0 ) {
+                classification = tree.getData().getLabel();
+            }
+        }
 
 
         return classification;

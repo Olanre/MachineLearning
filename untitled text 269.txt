@@ -1,0 +1,106 @@
+Use the following script to monitor the deployment.xml during the qchange:
+#!/bin/bash
+
+Run() {
+
+	echo ----------------------------------------------------------------------------
+	echo -n "---  " ; date
+	echo ----------------------------------------------------------------------------
+	echo " " 
+    echo "$@"
+    echo --------------------
+    "$@"
+    echo " "
+	echo ----------------------------------------------------------------------------
+
+}
+
+
+monitorFile()
+{
+    CONF_FILE="$1"
+
+   for DIR in \
+        /store/configservices/staging/globalconfig \
+        /store/configservices/deployed/globalconfig \
+        /opt/qradar/conf/templates \
+        /opt/qradar/conf \
+        /store/configservices/deployed \
+        /store/configservices/staging \
+    do
+       echo "Now looking in $DIR for deployment.xml"
+  	   Run stat "$DIR/$CONF_FILE"
+  	   Run ls -larth "$DIR/$CONF_FILE"
+  	   printf "Now going to print contents of $DIR/$CONF_FILE"
+  	   Run cat "$DIR/$CONF_FILE"
+  	   
+  	done
+}
+
+while true; do
+
+		sleep 10
+		monitorFile deployment.xml
+		Run psql -U qradar -c 'select * from managedhost'
+		sleep 10
+done;
+
+
+
+
+
+stat /opt/qradar/conf/deployment.xml
+--------------------
+  File: ‘/opt/qradar/conf/deployment.xml’
+  Size: 8247            Blocks: 24         IO Block: 4096   regular file
+Device: fd05h/64773d    Inode: 25449825    Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-12-03 21:27:13.462994376 -0400
+Modify: 2018-12-03 21:26:41.663000000 -0400
+Change: 2018-12-03 21:27:13.279994378 -0400
+ Birth: -
+--------------------
+ls -larth /opt/qradar/conf/deployment.xml
+--------------------
+-rw-r--r-- 1 root root 8.1K Dec  3 21:26 /opt/qradar/conf/deployment.xml
+Now going to print contents of /opt/qradar/conf/deployment.xml--------------------
+cat /opt/qradar/conf/deployment.xml
+--------------------
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:Deployment xmlns:ns2="http://www.q1labs.com/products/qradar/backup" xmlns:ns3="http://www.q1labs.com/products/qradar" lastNatId="0" lastHostId="1" deploymentId="0" lastComponentId="100" deploymentName="default" nattingChanged="false">
+    <managedHost compressed="false" encrypt="false" applianceType="3199" offsite="false" licenseChanged="false" changed="true" ha="false" publicIP="" natId="0" privateIP="172.18.138.119" hostName="ip-137-5" console="true" id="53">
+        <property activated="false" value="32000" name="minPortValue"/>
+        <property activated="false" value="65535" name="maxPortValue"/>
+    </managedHost>
+    <component hostId="53" changed="true" id="2" instanceName="hostcontext0" version="7.3.2" type="hostcontext">
+        <bounds width="130" height="90" y="20" x="320" viewName="172.18.138.119"/>
+        <property activated="false" value="0.90" name="DISK_MGMT_WARN_THRESHOLD"/>
+        <property activated="false" value="0.92" name="DISK_MGMT_RECOVERY_THRESHOLD"/>
+        <property activated="false" value="0.95" name="DISK_MGMT_SHUTDOWN_THRESHOLD"/>
+        <property activated="false" value="60000" name="DISK_MGMT_INTERVAL"/>
+        <property activated="false" value="/,/store,/transient,/storetmp,/opt,/var/log:p,/var/log/audit:p,/var:p,/tmp:p,/home:p" name="DISK_MGMT_DEFAULT_PARTITIONS"/>
+        <property activated="false" value="ens192" name="MGMT_INTERFACE"/>
+        <property activated="false" name="HTTPD_QIF_CLIENTS_LIST"/>
+        <property activated="false" name="SOLR_CLIENTS_LIST"/>
+    </component>
+    
+    
+Was modified by:
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.GlobalSetTransformerManager: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Deploy: Beginning config transformation
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.platform.DeployedComponentSynchronizer: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Syncronizing 172.18.138.119 host id in DB(53) and deployment.xml(1)
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.platform.DeployedComponentSynchronizer: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Syncronizing hostcontext component hostId in deployment.xml for 172.18.138.119 host
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.platform.DeployedComponentSynchronizer: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Syncronizing qflow component hostId in deployment.xml for 172.18.138.119 host
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.platform.DeployedComponentSynchronizer: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Syncronizing eventcollectoringress component hostId in deployment.xml for 172.18.138.119 host
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.platform.DeployedComponentSynchronizer: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Syncronizing eventcollector component hostId in deployment.xml for 172.18.138.119 host
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.platform.DeployedComponentSynchronizer: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Syncronizing eventprocessor component hostId in deployment.xml for 172.18.138.119 host
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.platform.DeployedComponentSynchronizer: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Syncronizing magistrate component hostId in deployment.xml for 172.18.138.119 host
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.platform.DeployedComponentSynchronizer: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Syncronizing accumulator component hostId in deployment.xml for 172.18.138.119 host
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.platform.DeployedComponentSynchronizer: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Syncronizing assetprofiler component hostId in deployment.xml for 172.18.138.119 host
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.platform.DeployedComponentSynchronizer: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Syncronizing vis component hostId in deployment.xml for 172.18.138.119 host
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.platform.DeployedComponentSynchronizer: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Syncronizing ariel_proxy_server component hostId in deployment.xml for 172.18.138.119 host
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.platform.DeployedComponentSynchronizer: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Syncronizing qvmprocessor component hostId in deployment.xml for 172.18.138.119 host
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.GlobalSetTransformerManager: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Deploy Global Transformer DeployedComponentSynchronizer: affected 1 hosts
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.GlobalSetTransformerManager: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Deploy Global Transformer GlobalNexusTransformer: affected 0 hosts
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.sem.GlobalCrossCorrelationTransformer: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Initializing the Console event processor (eventprocessor0) properties ...
+Dec  3 21:26:40 ::ffff:172.18.138.119 [tomcat.tomcat] [configservices@127.0.0.1 (6) /console/restapi/api/config/deploy_action] com.q1labs.configservices.config.globalset.GlobalSetTransformerManager: [INFO] [NOT:0000006000][172.18.138.119/- -] [-/- -]Deploy Global Transformer GlobalCrossCorrelationTransformer: affected 1 hosts
+

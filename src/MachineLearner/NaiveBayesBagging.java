@@ -12,7 +12,6 @@ public class NaiveBayesBagging extends Bagger implements MLAlgorithm {
 
     private ArrayList<MLAlgorithm> WeakLearners;
 
-    int bags = 50;
     int sampleRatio = 10;
     public static final String AlgorithmName = "NaiveBayes-Bagging";
 
