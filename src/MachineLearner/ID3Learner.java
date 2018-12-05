@@ -147,7 +147,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
             log.Log("buildTree", msg);
 
         }else{
-            if(this.randomRatio != 0.0){
+            if(this.randomRatio != 0.0 && dataSize < 5){
                 Double randomS = Math.floor(Double.valueOf(dataSize) * Double.valueOf(this.randomRatio));
                 int randomSize = randomS.intValue();
                 if( randomSize < dataSize){
@@ -181,7 +181,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
 
                 ArrayList<String> targetSpace =  targetAttribute.getDataAtIndexes(indexes);
 
-                if(targetSpace.isEmpty()  ){
+                if(targetSpace.isEmpty() ){
                     msg= "No more splits to be made as target no values exist for target of size: " + targetSpace.size();
                     log.Log("buildTree", msg);
                     DecisionNode child_data = new DecisionNode(targetAttribute, parent_mode);
@@ -238,7 +238,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
     public String Classify( ArrayList<String> cols, Node tree){
         String classification = "";
         int index;
-        if(tree.getChildren().size() == 0  || tree.getData() != null) {
+        if(tree.getChildren().size() == 0  && tree.getData() != null) {
             classification = tree.getData().getLabel();
             return classification;
         }else{
@@ -252,13 +252,13 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
                      classification = Classify(cols, tree);
                     break;
                 }
-                /**else if(tree.getChildren().size() == 0 ) {
-                        classification = tree.getData().getLabel();
-                        break;
-
-                }*/
 
             }
+        }
+
+        if( classification.equals("") && tree.getData() != null) {
+            classification = tree.getData().getLabel();
+            return classification;
         }
 
 
@@ -280,7 +280,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
             distribution = Double.valueOf(value.size()) / Double.valueOf(data_size);
 
             HashMap<String, ArrayList> goal_vals = this.GoalAttribute.getHashAtIndexes(value);
-            relative_remainder = calculateEntropy(goal_vals);
+            relative_remainder = calculateEntropy(goal_vals, this.GoalAttribute.getData().size());
 
             remainder = distribution * relative_remainder;
 
@@ -294,21 +294,40 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
     public double CalculateGain(DataReader dr){
         double gain = 0.0;
         double remainder  =CalculateRemainder(dr);
-        gain = calculateEntropy(MLUtils.getRowsinList(dr.getUniqueCounts(), this.GoalAttribute)) - remainder;
+        double entropy = calculateEntropy(MLUtils.getRowsinList(dr.getUniqueCounts(), this.GoalAttribute), dr.getData().size());
+        //double splitRatio = CalculateSplitRatio(MLUtils.getRowsinList(dr.getUniqueCounts(), this.GoalAttribute), dr.getData().size());
+
+        gain = (entropy - remainder);
+                //gain = gain / splitRatio;
 
         return gain;
     }
 
-
-    public double calculateEntropy(HashMap<String, ArrayList> instanceClass){
+    //public double CalculateSplitRatio(DataReader dr, ){
+    public double CalculateSplitRatio(HashMap<String, ArrayList> instanceClass, int totalInstances){
         double t = 0.0;
         double distribution, logVal;
-        int totalInstances = 0;
 
         for (ArrayList value : instanceClass.values()) {
-            totalInstances += value.size();
+            distribution = Double.valueOf(value.size()) / Double.valueOf(totalInstances);
+            logVal = Math.log(distribution)/Math.log(2);
+            t += ( distribution * logVal) ;
 
         }
+
+        return (-1 * t);
+    }
+
+
+    public double calculateEntropy(HashMap<String, ArrayList> instanceClass, int totalInstances){
+        double t = 0.0;
+        double distribution, logVal;
+        //int totalInstances = 0;
+
+        /**for (ArrayList value : instanceClass.values()) {
+            totalInstances += value.size();
+
+        }*/
 
         for (ArrayList value : instanceClass.values()) {
             distribution = Double.valueOf(value.size()) / Double.valueOf(totalInstances);

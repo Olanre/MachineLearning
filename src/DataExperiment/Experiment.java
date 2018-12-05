@@ -23,7 +23,7 @@ public class Experiment {
         DataProcessor processor5 = new DataProcessor("/Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup", ",", false, 0);
 
         ArrayList<DataProcessor> processors = new ArrayList<>();
-        //processors.add(processor1);
+        processors.add(processor1);
         processors.add(processor2);
         processors.add(processor3);
         //processors.add(processor4);
@@ -34,10 +34,10 @@ public class Experiment {
 
         //algorithms.add(new NaiveBayes());
         //algorithms.add(new NaiveBayesBagging(10));
-        //algorithms.add(new ID3Learner(0.0));
+        algorithms.add(new ID3Learner(0.0));
         //algorithms.add(new RandomForest(0.5, 10));
         //algorithms.add(new AdaBoost(10));
-        algorithms.add(new KNearestNeighbour());
+        //algorithms.add(new KNearestNeighbour());
 
 
 

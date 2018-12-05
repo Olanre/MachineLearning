@@ -61,7 +61,7 @@ public class MLEngine {
 
 
     public void buildClassification (){
-        String msg = "<< Entering buildClassication for MlEngine";
+        String msg = "<< Entering buildClassication for MlEngine and algorithm " + this.algorithm.getAlgorithmName();
         log.Log("buildClassication", msg);
         int target = this.processor.getTargetCol();
 
@@ -72,7 +72,7 @@ public class MLEngine {
         this.algorithm.learnData(test, goal);
         ProcessorToAlgo.put(this.processor, this.algorithm);
 
-        msg = ">> Leaving buildClassication for MlEngine";
+        msg = ">> Leaving buildClassication for MlEngine and algorithm " + this.algorithm.getAlgorithmName();
         log.Log("buildClassication", msg);
 
     }

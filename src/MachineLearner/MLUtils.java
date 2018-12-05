@@ -69,11 +69,11 @@ public class MLUtils {
         Logger log = initLogger();
         ArrayList<DataReader> newAttributes = new ArrayList<>();
 
-        for(int i = 0; i < Attributes.size(); i++){
+        for(int i = 0; i < indexesToKeep.size(); i++){
 
             DataReader dr = new DataFormat(Attributes.get(i));
             dr.setLog(log);
-            log.Log("getVerificationData", dr.printData());
+            log.Log("getReadersAtIndex", dr.printData());
             newAttributes.add(dr);
 
 
