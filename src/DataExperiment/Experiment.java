@@ -23,7 +23,7 @@ public class Experiment {
         DataProcessor processor5 = new DataProcessor("/Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup", ",", false, 0);
 
         ArrayList<DataProcessor> processors = new ArrayList<>();
-        processors.add(processor1);
+        //processors.add(processor1);
         processors.add(processor2);
         processors.add(processor3);
         //processors.add(processor4);
@@ -32,11 +32,11 @@ public class Experiment {
 
         ArrayList<MLAlgorithm> algorithms = new ArrayList<>();
 
-        algorithms.add(new NaiveBayes());
-        algorithms.add(new NaiveBayesBagging(10));
-        algorithms.add(new ID3Learner(0.0));
-        algorithms.add(new RandomForest(0.5, 10));
-        algorithms.add(new AdaBoost(10));
+        //algorithms.add(new NaiveBayes());
+        //algorithms.add(new NaiveBayesBagging(10));
+        //algorithms.add(new ID3Learner(0.0));
+        //algorithms.add(new RandomForest(0.5, 10));
+        //algorithms.add(new AdaBoost(10));
         algorithms.add(new KNearestNeighbour());
 
 
@@ -45,7 +45,7 @@ public class Experiment {
             for(int j = 0; j < processors.size(); j++){
                 MLEngine engine = new MLEngine(algorithms.get(i), processors.get(j), 5, 10);
                 engine.buildClassification();
-                engine.runVerification();
+                //engine.runVerification();
                 engine.runTest();
             }
 

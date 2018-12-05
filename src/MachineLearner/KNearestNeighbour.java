@@ -14,7 +14,7 @@ import java.util.*;
 public class KNearestNeighbour  implements MLAlgorithm{
 
     private double error, wts;
-    private int k = 4;
+    private int k = 3;
     double[] alpha;
     private ArrayList<DataReader> Attributes;
     private DataReader GoalAttribute;
@@ -130,9 +130,6 @@ public class KNearestNeighbour  implements MLAlgorithm{
             //row has already being preprocessed as double
             RowData = row.getASDouble();
 
-            //this will get us the Hamming distance
-            distance = Calculate_Minkowski_Distance(RowData, parsedCols, 0);
-            HammingDistances.put( distance, String.valueOf(i));
 
             //this will get us the Manhattan distance
             distance = Calculate_Minkowski_Distance(RowData, parsedCols, 1);
@@ -143,15 +140,6 @@ public class KNearestNeighbour  implements MLAlgorithm{
             EuclideanDistances.put( distance, String.valueOf(i));
 
         }
-
-        List<Double> Hammingkeys = Util.getKeysFromMap(HammingDistances);
-        msg = String.format("Keys are algorithm: %s \n", Hammingkeys.toString());
-        log.Log("buildKClassifiers", msg);
-        Collections.sort(Hammingkeys);
-        if( Hammingkeys.size() > this.getK()){
-            Hammingkeys = Hammingkeys.subList(0, this.getK());
-        }
-        classifications.addAll(Util.ValsFromHashAsArr( HammingDistances, Hammingkeys ));
 
         List<Double> Manhattankeys = Util.getKeysFromMap(ManhattanDistances);
         Collections.sort(Manhattankeys);

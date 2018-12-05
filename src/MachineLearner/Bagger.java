@@ -81,6 +81,8 @@ public class Bagger {
         ArrayList<Integer> indexes;
 
         dataSize = this.Attributes.get(0).getData().size();
+
+        if( dataSize > 5000) this.bags = 15;
         sampleSize = dataSize/ this.sampleRatio;
         this.WeakLearners = new ArrayList<>();
         for(int i = 0; i < bags; i++){
