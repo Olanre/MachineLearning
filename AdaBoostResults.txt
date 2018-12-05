@@ -1,0 +1,237 @@
+"C:\Program Files\Java\jdk1.8.0_191\bin\java.exe" -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:50849,suspend=y,server=n -javaagent:C:\Users\olanre\.IdeaIC2018.3\system\captureAgent\debugger-agent.jar -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_191\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\rt.jar;C:\Users\olanre\Documents\MachineLearning-master\MachineLearning-master\out;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\idea_rt.jar" DataExperiment.Experiment
+Connected to the target VM, address: '127.0.0.1:50849', transport: 'socket'
+[2018/12/05 02:11:53] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\car.data.backup File Created in Project root directory
+[2018/12/05 02:15:03] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/05 02:15:03] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/05 02:15:08] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:15:08] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 02:15:08] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\car.data.backup  is: 85.26011560693641 
+[2018/12/05 02:15:14] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:15:14] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 02:15:14] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\car.data.backup  is: 81.21387283236994 
+[2018/12/05 02:15:19] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:15:19] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 02:15:19] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\car.data.backup  is: 80.34682080924856 
+[2018/12/05 02:15:24] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:15:24] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 02:15:24] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\car.data.backup  is: 83.8150289017341 
+[2018/12/05 02:15:29] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:15:29] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 02:15:29] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\car.data.backup  is: 81.21387283236994 
+[2018/12/05 02:15:34] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:15:34] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 02:15:34] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\car.data.backup  is: 80.92485549132948 
+[2018/12/05 02:15:39] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:15:39] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 02:15:39] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\car.data.backup  is: 82.65895953757226 
+[2018/12/05 02:15:44] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:15:44] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 02:15:44] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\car.data.backup  is: 79.47976878612717 
+[2018/12/05 02:15:49] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:15:49] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 02:15:49] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\car.data.backup  is: 80.05780346820809 
+[2018/12/05 02:15:54] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:15:54] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 02:15:54] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\car.data.backup  is: 82.65895953757226 
+[2018/12/05 02:15:54] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\car.data.backup  is: 81.76300578034683 
+
+
+ 
+[2018/12/05 02:15:54] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\breast-cancer-wisconsin.data.backup File Created in Project root directory
+[2018/12/05 02:17:13] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/05 02:17:13] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/05 02:17:16] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:17:16] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 02:17:16] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\breast-cancer-wisconsin.data.backup  is: 95.71428571428572 
+[2018/12/05 02:17:20] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:17:20] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 02:17:20] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\breast-cancer-wisconsin.data.backup  is: 94.28571428571428 
+[2018/12/05 02:17:23] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:17:23] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 02:17:23] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\breast-cancer-wisconsin.data.backup  is: 91.42857142857143 
+[2018/12/05 02:17:26] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:17:26] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 02:17:26] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\breast-cancer-wisconsin.data.backup  is: 92.14285714285714 
+[2018/12/05 02:17:29] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:17:29] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 02:17:29] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\breast-cancer-wisconsin.data.backup  is: 91.42857142857143 
+[2018/12/05 02:17:32] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:17:32] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 02:17:32] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\breast-cancer-wisconsin.data.backup  is: 89.28571428571429 
+[2018/12/05 02:17:35] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:17:35] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 02:17:35] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\breast-cancer-wisconsin.data.backup  is: 91.42857142857143 
+[2018/12/05 02:17:38] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:17:38] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 02:17:38] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\breast-cancer-wisconsin.data.backup  is: 91.42857142857143 
+[2018/12/05 02:17:41] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:17:41] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 02:17:41] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\breast-cancer-wisconsin.data.backup  is: 90.71428571428571 
+[2018/12/05 02:17:44] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:17:44] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 02:17:44] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\breast-cancer-wisconsin.data.backup  is: 92.14285714285714 
+[2018/12/05 02:17:44] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\breast-cancer-wisconsin.data.backup  is: 92.0 
+
+
+ 
+[2018/12/05 02:17:44] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\ecoli.data.backup File Created in Project root directory
+[2018/12/05 02:18:19] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/05 02:18:19] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/05 02:18:21] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:18:21] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 02:18:21] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\ecoli.data.backup  is: 67.64705882352942 
+[2018/12/05 02:18:22] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:18:22] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 02:18:22] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\ecoli.data.backup  is: 72.05882352941177 
+[2018/12/05 02:18:23] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:18:23] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 02:18:23] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\ecoli.data.backup  is: 75.0 
+[2018/12/05 02:18:25] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:18:25] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 02:18:25] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\ecoli.data.backup  is: 73.52941176470588 
+[2018/12/05 02:18:26] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:18:26] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 02:18:26] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\ecoli.data.backup  is: 73.52941176470588 
+[2018/12/05 02:18:27] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:18:27] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 02:18:27] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\ecoli.data.backup  is: 69.11764705882352 
+[2018/12/05 02:18:29] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:18:29] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 02:18:29] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\ecoli.data.backup  is: 82.35294117647058 
+[2018/12/05 02:18:30] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:18:30] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 02:18:30] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\ecoli.data.backup  is: 80.88235294117648 
+[2018/12/05 02:18:31] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:18:31] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 02:18:31] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\ecoli.data.backup  is: 75.0 
+[2018/12/05 02:18:33] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:18:33] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 02:18:33] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\ecoli.data.backup  is: 66.17647058823529 
+[2018/12/05 02:18:33] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\ecoli.data.backup  is: 73.52941176470588 
+
+
+ 
+[2018/12/05 02:18:33] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\mushroom.data.backup File Created in Project root directory
+[2018/12/05 02:32:33] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/05 02:32:33] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/05 02:33:44] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:33:44] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 02:33:44] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\mushroom.data.backup  is: 52.06153846153846 
+[2018/12/05 02:34:56] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:34:56] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 02:34:56] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\mushroom.data.backup  is: 50.76923076923077 
+[2018/12/05 02:36:08] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:36:08] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 02:36:08] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\mushroom.data.backup  is: 51.69230769230769 
+[2018/12/05 02:37:19] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:37:19] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 02:37:19] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\mushroom.data.backup  is: 50.58461538461538 
+[2018/12/05 02:38:35] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:38:35] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 02:38:35] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\mushroom.data.backup  is: 53.72307692307692 
+[2018/12/05 02:39:51] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:39:51] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 02:39:51] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\mushroom.data.backup  is: 51.63076923076923 
+[2018/12/05 02:41:07] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:41:07] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 02:41:07] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\mushroom.data.backup  is: 50.09230769230769 
+[2018/12/05 02:42:25] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:42:25] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 02:42:25] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\mushroom.data.backup  is: 50.46153846153846 
+[2018/12/05 02:43:36] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:43:36] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 02:43:36] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\mushroom.data.backup  is: 52.55384615384615 
+[2018/12/05 02:44:44] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: AdaBoost 
+ 
+[2018/12/05 02:44:44] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 02:44:44] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\mushroom.data.backup  is: 52.0 
+[2018/12/05 02:44:44] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: AdaBoost on file: C:\Users\olanre\Documents\CS-Machine-Learning\MachineLearning-master\MachineLearning-master\test-resources\mushroom.data.backup  is: 51.55692307692308 
+
+
+ 
+Disconnected from the target VM, address: '127.0.0.1:50849', transport: 'socket'
+
+Process finished with exit code 0
