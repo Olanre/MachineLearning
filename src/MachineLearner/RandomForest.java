@@ -17,7 +17,7 @@ public class RandomForest  extends Bagger implements MLAlgorithm{
     public static final String AlgorithmName = "RandomForest";
 
 
-    int bags = 50;
+    int bags = 43;
     int sampleRatio = 10;
     double splitRatio = 0.3;
 

@@ -17,7 +17,7 @@ public class AdaBoost implements MLAlgorithm {
 
     double[] unitResult;
     ArrayList<Double> weights, alpha, error = new ArrayList<>();
-    int bins = 50;
+    int bins = 43;
     private ArrayList<DataReader> Attributes;
     private DataReader GoalAttribute;
     private ArrayList<Node> trees;

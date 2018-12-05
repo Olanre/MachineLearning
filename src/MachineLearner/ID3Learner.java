@@ -137,7 +137,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
         msg= "Our target attribute is currently:  " + targetAttribute.printData();
         log.Log("buildTree", msg);
         this.currentDepth = currentDepth;
-        if( allExamplesPositive(targetAttribute) || currentAttributes.isEmpty() || depthReached(currentDepth) ){
+        if( allExamplesPositive(targetAttribute) || currentAttributes.isEmpty() || depthReached(currentDepth) || dataSize == 1 ){
             msg= "All examples is target are either positive or the current Attributes array is empty or the max depth has been reached";
             log.Log("buildTree", msg);
             String value = targetAttribute.findMode(targetAttribute.getData());
@@ -147,7 +147,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
             log.Log("buildTree", msg);
 
         }else{
-            if(this.randomRatio != 0.0 && dataSize < 5){
+            if(this.randomRatio != 0.0 && dataSize > 10){
                 Double randomS = Math.floor(Double.valueOf(dataSize) * Double.valueOf(this.randomRatio));
                 int randomSize = randomS.intValue();
                 if( randomSize < dataSize){
@@ -160,6 +160,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
 
 
             DataReader bestAttribute = getBestAttribute(currentAttributes, targetAttribute);
+            bestAttribute.setLog(this.log);
             msg= "New best attribute is:  " + bestAttribute.printData();
             log.Log("buildTree", msg);
             HashMap<String, ArrayList> attributeValues =  bestAttribute.getUniqueCounts();
@@ -181,10 +182,10 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
 
                 ArrayList<String> targetSpace =  targetAttribute.getDataAtIndexes(indexes);
 
-                if(targetSpace.isEmpty() ){
+                if( targetSpace.size() == 1 ){
                     msg= "No more splits to be made as target no values exist for target of size: " + targetSpace.size();
                     log.Log("buildTree", msg);
-                    DecisionNode child_data = new DecisionNode(targetAttribute, parent_mode);
+                    DecisionNode child_data = new DecisionNode(targetAttribute, targetSpace.get(0));
                     child.setData(child_data);
                     child.setBranch(key);
 
@@ -249,16 +250,15 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
                 tree = children.get(i);
                 if( cols.get(index).equals(tree.getBranch())){
                     //cols.remove(index);
-                     classification = Classify(cols, tree);
+                    classification = Classify(cols, tree);
                     break;
                 }
 
             }
         }
 
-        if( classification.equals("") && tree.getData() != null) {
+        if( classification.equals("") && tree.getData() != null && tree.getChildren().size() == 0) {
             classification = tree.getData().getLabel();
-            return classification;
         }
 
 
@@ -346,7 +346,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
     public DataReader getBestAttribute(ArrayList<DataReader> Attributes, DataReader GoalAttribute){
         //this.Attributes = Attributes;
         //this.GoalAttribute = GoalAttribute;
-        double gain, maxGain = -20.0;
+        double gain, maxGain = -20000.0;
         int indexOfBest = 0;
         if (Attributes.size()== 0) return null;
 

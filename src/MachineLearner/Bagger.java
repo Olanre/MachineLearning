@@ -19,7 +19,7 @@ public class Bagger {
     Logger log;
 
 
-    int bags = 50;
+    int bags = 43;
     int sampleRatio;
 
 
@@ -82,7 +82,7 @@ public class Bagger {
 
         dataSize = this.Attributes.get(0).getData().size();
 
-        //if( dataSize > 5000) this.bags = 15;
+        if( dataSize > 90000) this.bags = 5;
         sampleSize = dataSize/ this.sampleRatio;
         this.WeakLearners = new ArrayList<>();
         for(int i = 0; i < bags; i++){
@@ -119,7 +119,9 @@ public class Bagger {
         for( int i = 0; i < this.WeakLearners.size(); i++){
             MLAlgorithm learner = this.WeakLearners.get(i);
             String classification = learner.Classify(cols);
-            if(classification.equals("")) continue;
+            if(classification.equals("")){
+                continue;
+            }
 
             bagResults.add( classification );
         }

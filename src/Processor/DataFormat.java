@@ -238,7 +238,7 @@ public class DataFormat implements  DataReader{
             pos = arr.get(i);
             str = this.Data.get(pos);
 
-            msg = String.format("Adding a new value index: %s and value: %s in the ArrayList.",  String.valueOf(pos), str);
+            msg = String.format("Adding a new value index: %s and value: %s in the ArrayList for column: %s",  String.valueOf(pos), str, this.ColumnNumber);
             log.Log("getDataAtIndexes", msg);
             index.add(str);
 

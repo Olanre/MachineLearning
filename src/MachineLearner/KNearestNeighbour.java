@@ -21,6 +21,11 @@ public class KNearestNeighbour  implements MLAlgorithm{
     private ArrayList<DataReader> TotalAttributes;
     public static final String AlgorithmName = "KNN";
     Logger log;
+    private int power;
+
+    public KNearestNeighbour(int  pow){
+        this.power = power;
+    }
 
 
 
@@ -121,9 +126,11 @@ public class KNearestNeighbour  implements MLAlgorithm{
 
         ArrayList<String> classifications = new ArrayList<>();
 
-        HashMap<Double, String> ManhattanDistances = new HashMap<>();
-        HashMap<Double, String> EuclideanDistances = new HashMap<>();
-        HashMap<Double, String> HammingDistances = new HashMap<>();
+        HashMap<Double, String> Distances = new HashMap<>();
+        //HashMap<Double, String> EuclideanDistances = new HashMap<>();
+        //HashMap<Double, String> HammingDistances = new HashMap<>();
+        double minDistance = 0.0;
+
 
         for(int i = 0; i < TotalAttributes.size(); i++){
             row = TotalAttributes.get(i);
@@ -133,30 +140,30 @@ public class KNearestNeighbour  implements MLAlgorithm{
 
             //this will get us the Manhattan distance
             distance = Calculate_Minkowski_Distance(RowData, parsedCols, 1);
-            ManhattanDistances.put( distance, String.valueOf(i));
+            Distances.put( distance, String.valueOf(i));
 
             //this will get us the Euclidean distance
-            distance = Calculate_Minkowski_Distance(RowData, parsedCols, 2);
-            EuclideanDistances.put( distance, String.valueOf(i));
+            //distance = Calculate_Minkowski_Distance(RowData, parsedCols, 2);
+            //EuclideanDistances.put( distance, String.valueOf(i));
 
         }
 
-        List<Double> Manhattankeys = Util.getKeysFromMap(ManhattanDistances);
-        Collections.sort(Manhattankeys);
-        if( Manhattankeys.size() > this.getK()){
-            Manhattankeys = Manhattankeys.subList(0, this.getK());
+        List<Double> keys = Util.getKeysFromMap(Distances);
+        Collections.sort(keys);
+        if( keys.size() > this.getK()){
+            keys = keys.subList(0, this.getK());
         }
-        Manhattankeys = Manhattankeys.subList(0, this.getK());
-        classifications.addAll(Util.ValsFromHashAsArr( ManhattanDistances, Manhattankeys ));
+        //keys = keys.subList(0, this.getK());
+        classifications.addAll(Util.ValsFromHashAsArr( Distances, keys ));
 
 
-        List<Double> Euclideankeys = Util.getKeysFromMap(EuclideanDistances);
+        /** List<Double> Euclideankeys = Util.getKeysFromMap(EuclideanDistances);
         Collections.sort(Euclideankeys);
         if( Euclideankeys.size() > this.getK()){
             Euclideankeys = Euclideankeys.subList(0, this.getK());
         }
         Euclideankeys = Euclideankeys.subList(0, this.getK());
-        classifications.addAll(Util.ValsFromHashAsArr( EuclideanDistances, Euclideankeys ));
+        classifications.addAll(Util.ValsFromHashAsArr( EuclideanDistances, Euclideankeys )); */
 
         return classifications;
 
