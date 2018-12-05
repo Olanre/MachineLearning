@@ -238,7 +238,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
     public String Classify( ArrayList<String> cols, Node tree){
         String classification = "";
         int index;
-        if(tree.getChildren().size() == 0 ) {
+        if(tree.getChildren().size() == 0  || tree.getData() != null) {
             classification = tree.getData().getLabel();
             return classification;
         }else{
@@ -258,13 +258,6 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
 
                 }*/
 
-            }
-        }
-
-        if(classification.equals("") && tree.getData() != null) {
-
-             if(tree.getChildren().size() == 0 ) {
-                classification = tree.getData().getLabel();
             }
         }
 
