@@ -141,10 +141,6 @@ public class DataProcessor {
         String msg = "About to get training Data for DataProcessor";
         log.Log("getTrainingData", msg);
 
-        setTrainingAndTest();
-
-        //int k = 0;
-
         return this.trainingData;
     }
 
@@ -228,8 +224,7 @@ public class DataProcessor {
 
 
         String msg = "<< Entering getTestData for DataProcessor";
-        log.Log("getVerificationData", msg);
-        setTrainingAndTest();
+        log.Log("getTestData", msg);
         ArrayList<DataReader> test_data = MLUtils.ColtoRowMajor(this.testData);
 
         msg = ">> Leaving getTestData for DataProcessor";
