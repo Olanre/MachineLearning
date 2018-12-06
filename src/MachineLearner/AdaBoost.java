@@ -101,20 +101,9 @@ public class AdaBoost implements MLAlgorithm {
             this.weakLearners.add( weakLearner);
             weightedError = getWeightedSum(weakLearner, T);
             this.trees.add( T);
-            //this.error.add( weightedError);
             smallAlpha = Math.log((1.0 - weightedError)/Math.max(1E-10,weightedError)) + multiClassConstant ;
             this.alpha.add( smallAlpha);
             setUpdatedWeightedSum(weightedError, smallAlpha);
-
-            /**if ( 1 - weightedError  <= noise){
-                // this is no better than a random guess!
-                badClassifiers++;
-                i--;
-
-            } else {
-
-
-            }*/
 
         }
 
@@ -174,17 +163,8 @@ public class AdaBoost implements MLAlgorithm {
 
         if( this.GoalAttribute.getData().size() > 5000) this.bins = 15;
 
-
         double weight  = 1.0 / Double.valueOf(this.TotalAttributes.size());
-        /** int discreteClasses = this.GoalAttribute.getUniqueElements().size();
 
-        if( discreteClasses  > this.bins ){
-            this.bins = discreteClasses;
-        }
-
-        if( this.GoalAttribute.getData().size() < 500){
-            this.bins = this.GoalAttribute.getData().size() / 2;
-        }*/
         for(int i = 0 ; i < this.TotalAttributes.size(); i++){
             this.weights.add( weight);
 

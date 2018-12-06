@@ -1,0 +1,237 @@
+/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/bin/java -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:64855,suspend=y,server=n -Dfile.encoding=UTF-8 -classpath "/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/deploy.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/CmpCrmf.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/IBMSecureRandom.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/cldrdata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/dnsns.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/gskikm.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmcmsprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmjcefips.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmjceprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmkeycert.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmpkcs11impl.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmsaslprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmxmlcrypto.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmxmldsigprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmxmlencprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/jaccess.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/jfxrt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/localedata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/nashorn.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/sunec.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/sunjce_provider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/sunpkcs11.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/xmlencfw.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/zipfs.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/javaws.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/jfxswt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/management-agent.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/plugin.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/xmldsigfw.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/ant-javafx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/dt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/ibmorbtools.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/javafx-mx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/jconsole.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/packager.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/sa-jdi.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/tools.jar:/Users/olanre/Documents/CS6735/Code/out/production/Code:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar" DataExperiment.Experiment
+Connected to the target VM, address: '127.0.0.1:64855', transport: 'socket'
+[2018/12/05 15:45:51] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine and algorithm RandomForest 
+/Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup File Created in Project root directory
+[2018/12/05 15:47:59] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine and algorithm RandomForest 
+[2018/12/05 15:47:59] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/05 15:48:01] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:48:01] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 15:48:01] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 68.78612716763006 
+[2018/12/05 15:48:03] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:48:03] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 15:48:03] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 68.20809248554913 
+[2018/12/05 15:48:06] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:48:06] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 15:48:06] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 68.78612716763006 
+[2018/12/05 15:48:08] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:48:08] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 15:48:08] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 73.98843930635837 
+[2018/12/05 15:48:11] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:48:11] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 15:48:11] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 65.89595375722543 
+[2018/12/05 15:48:13] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:48:13] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 15:48:13] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 71.96531791907515 
+[2018/12/05 15:48:15] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:48:15] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 15:48:15] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 71.67630057803468 
+[2018/12/05 15:48:18] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:48:18] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 15:48:18] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 71.09826589595376 
+[2018/12/05 15:48:20] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:48:20] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 15:48:20] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 73.121387283237 
+[2018/12/05 15:48:23] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:48:23] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 346 
+ 
+[2018/12/05 15:48:23] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 73.69942196531792 
+[2018/12/05 15:48:23] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup  is: 70.72254335260115 
+
+
+ 
+[2018/12/05 15:48:23] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine and algorithm RandomForest 
+/Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup File Created in Project root directory
+[2018/12/05 15:49:20] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine and algorithm RandomForest 
+[2018/12/05 15:49:20] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/05 15:49:21] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:49:21] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 15:49:21] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 100.0 
+[2018/12/05 15:49:23] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:49:23] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 15:49:23] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 97.14285714285714 
+[2018/12/05 15:49:24] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:49:24] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 15:49:24] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 97.14285714285714 
+[2018/12/05 15:49:26] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:49:26] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 15:49:26] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 97.85714285714285 
+[2018/12/05 15:49:27] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:49:27] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 15:49:27] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 94.28571428571428 
+[2018/12/05 15:49:29] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:49:29] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 15:49:29] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 98.57142857142858 
+[2018/12/05 15:49:30] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:49:30] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 15:49:30] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 94.28571428571428 
+[2018/12/05 15:49:32] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:49:32] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 15:49:32] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 97.14285714285714 
+[2018/12/05 15:49:33] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:49:33] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 15:49:33] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 95.0 
+[2018/12/05 15:49:35] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:49:35] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 15:49:35] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 97.85714285714285 
+[2018/12/05 15:49:35] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 96.92857142857142 
+
+
+ 
+[2018/12/05 15:49:35] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine and algorithm RandomForest 
+/Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup File Created in Project root directory
+[2018/12/05 15:50:14] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine and algorithm RandomForest 
+[2018/12/05 15:50:14] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/05 15:50:15] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:50:15] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 15:50:15] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 33.82352941176471 
+[2018/12/05 15:50:15] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:50:15] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 15:50:15] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 35.294117647058826 
+[2018/12/05 15:50:16] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:50:16] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 15:50:16] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 36.76470588235294 
+[2018/12/05 15:50:16] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:50:16] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 15:50:16] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 32.35294117647059 
+[2018/12/05 15:50:17] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:50:17] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 15:50:17] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 42.64705882352941 
+[2018/12/05 15:50:18] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:50:18] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 15:50:18] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 27.941176470588236 
+[2018/12/05 15:50:18] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:50:18] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 15:50:18] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 33.82352941176471 
+[2018/12/05 15:50:19] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:50:19] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 15:50:19] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 35.294117647058826 
+[2018/12/05 15:50:19] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:50:19] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 15:50:19] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 29.411764705882355 
+[2018/12/05 15:50:20] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 15:50:20] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 15:50:20] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 26.47058823529412 
+[2018/12/05 15:50:20] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 33.38235294117648 
+
+
+ 
+[2018/12/05 15:50:20] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine and algorithm RandomForest 
+/Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup File Created in Project root directory
+[2018/12/05 16:10:38] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine and algorithm RandomForest 
+[2018/12/05 16:10:38] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/05 16:11:34] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 16:11:34] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 16:11:34] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 49.23076923076923 
+[2018/12/05 16:12:07] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 16:12:07] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 16:12:07] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 45.84615384615385 
+[2018/12/05 16:12:39] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 16:12:39] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 16:12:39] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 48.8 
+[2018/12/05 16:13:12] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 16:13:12] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 16:13:12] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 48.98461538461538 
+[2018/12/05 16:13:44] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 16:13:44] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 16:13:44] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 49.16923076923077 
+[2018/12/05 16:14:17] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 16:14:17] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 16:14:17] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 47.753846153846155 
+[2018/12/05 16:15:04] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 16:15:04] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 16:15:04] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 48.92307692307693 
+[2018/12/05 16:15:54] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 16:15:54] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 16:15:54] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 47.44615384615384 
+[2018/12/05 16:16:41] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 16:16:41] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 16:16:41] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 46.892307692307696 
+[2018/12/05 16:17:17] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: RandomForest 
+ 
+[2018/12/05 16:17:17] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 1625 
+ 
+[2018/12/05 16:17:17] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 48.43076923076923 
+[2018/12/05 16:17:17] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: RandomForest on file: /Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup  is: 48.14769230769231 
+
+
+ 
+[2018/12/05 16:17:17] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine and algorithm AdaBoost 
+/Users/olanre/Documents/CS6735/Code/test-resources/car.data.backup File Created in Project root directory
+

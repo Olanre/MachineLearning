@@ -1,0 +1,123 @@
+/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/bin/java -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:59656,suspend=y,server=n -Dfile.encoding=UTF-8 -classpath "/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/deploy.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/CmpCrmf.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/IBMSecureRandom.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/cldrdata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/dnsns.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/gskikm.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmcmsprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmjcefips.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmjceprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmkeycert.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmpkcs11impl.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmsaslprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmxmlcrypto.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmxmldsigprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/ibmxmlencprovider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/jaccess.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/jfxrt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/localedata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/nashorn.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/sunec.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/sunjce_provider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/sunpkcs11.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/xmlencfw.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/ext/zipfs.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/javaws.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/jfxswt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/management-agent.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/plugin.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/jre/lib/xmldsigfw.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/ant-javafx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/dt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/ibmorbtools.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/javafx-mx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/jconsole.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/packager.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/sa-jdi.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_4.jdk/lib/tools.jar:/Users/olanre/Documents/CS6735/Code/out/production/Code:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar" DataExperiment.Experiment
+Connected to the target VM, address: '127.0.0.1:59656', transport: 'socket'
+[2018/12/04 22:10:22] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+/Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup File Created in Project root directory
+[2018/12/04 22:10:39] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/04 22:10:39] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/04 22:21:09] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/04 22:21:09] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/04 22:21:09] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 31.428571428571427 
+[2018/12/04 22:30:48] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/04 22:30:48] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/04 22:30:48] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 29.28571428571429 
+[2018/12/04 22:41:48] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/04 22:41:48] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/04 22:41:48] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 30.0 
+[2018/12/04 22:53:52] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/04 22:53:52] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/04 22:53:52] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 39.285714285714285 
+[2018/12/04 23:04:14] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/04 23:04:14] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/04 23:04:14] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 37.857142857142854 
+[2018/12/04 23:18:16] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/04 23:18:16] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/04 23:18:16] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 33.57142857142857 
+[2018/12/04 23:28:49] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/04 23:28:49] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/04 23:28:49] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 32.857142857142854 
+[2018/12/04 23:39:05] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/04 23:39:05] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/04 23:39:05] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 37.142857142857146 
+[2018/12/04 23:50:31] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/04 23:50:31] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/04 23:50:31] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 34.285714285714285 
+[2018/12/05 00:00:20] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/05 00:00:20] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 140 
+ 
+[2018/12/05 00:00:20] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 32.857142857142854 
+[2018/12/05 00:00:20] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup  is: 33.857142857142854 
+
+
+ 
+[2018/12/05 00:00:20] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+/Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup File Created in Project root directory
+[2018/12/05 00:00:25] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/05 00:00:25] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+[2018/12/05 00:02:08] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/05 00:02:08] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 00:02:08] [MLEngine] [DEBUG] [runTest] End of run for test: 0. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 89.70588235294117 
+[2018/12/05 00:03:46] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/05 00:03:46] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 00:03:46] [MLEngine] [DEBUG] [runTest] End of run for test: 1. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 86.76470588235294 
+[2018/12/05 00:05:25] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/05 00:05:25] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 00:05:25] [MLEngine] [DEBUG] [runTest] End of run for test: 2. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 80.88235294117648 
+[2018/12/05 00:07:07] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/05 00:07:07] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 00:07:07] [MLEngine] [DEBUG] [runTest] End of run for test: 3. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 85.29411764705883 
+[2018/12/05 00:08:46] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/05 00:08:46] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 00:08:46] [MLEngine] [DEBUG] [runTest] End of run for test: 4. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 86.76470588235294 
+[2018/12/05 00:10:29] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/05 00:10:29] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 00:10:29] [MLEngine] [DEBUG] [runTest] End of run for test: 5. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 92.64705882352942 
+[2018/12/05 00:12:09] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/05 00:12:09] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 00:12:09] [MLEngine] [DEBUG] [runTest] End of run for test: 6. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 89.70588235294117 
+[2018/12/05 00:13:52] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/05 00:13:52] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 00:13:52] [MLEngine] [DEBUG] [runTest] End of run for test: 7. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 86.76470588235294 
+[2018/12/05 00:15:34] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/05 00:15:34] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 00:15:34] [MLEngine] [DEBUG] [runTest] End of run for test: 8. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 86.76470588235294 
+[2018/12/05 00:17:15] [MLEngine] [DEBUG] [runTest] About to run tests on algorithm: KNN 
+ 
+[2018/12/05 00:17:15] [MLEngine] [DEBUG] [runTest] About to perform classify examples of size: 68 
+ 
+[2018/12/05 00:17:15] [MLEngine] [DEBUG] [runTest] End of run for test: 9. The accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 79.41176470588235 
+[2018/12/05 00:17:15] [MLEngine] [DEBUG] [runTest] End of runs. The  average accuracy reported by algorithm: KNN on file: /Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup  is: 86.47058823529412 
+
+
+ 
+[2018/12/05 00:17:15] [MLEngine] [DEBUG] [buildClassication] << Entering buildClassication for MlEngine 
+/Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup File Created in Project root directory
+[2018/12/05 00:18:36] [MLEngine] [DEBUG] [buildClassication] >> Leaving buildClassication for MlEngine 
+[2018/12/05 00:18:36] [MLEngine] [DEBUG] [runTest] << Entering runTest for MlEngine 
+
