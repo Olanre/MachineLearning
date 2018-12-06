@@ -20,8 +20,8 @@ public class Experiment {
         DataProcessor processor2 = new DataProcessor("/Users/olanre/Documents/CS6735/Code/test-resources/breast-cancer-wisconsin.data.backup", ",", false, 10);
         DataProcessor processor3 = new DataProcessor("/Users/olanre/Documents/CS6735/Code/test-resources/ecoli.data.backup", "\\s+", false, 8);
         DataProcessor processor4 = new DataProcessor("/Users/olanre/Documents/CS6735/Code/test-resources/mushroom.data.backup", ",", false, 0);
-        DataProcessor processor5 = new DataProcessor("/Users/olanre/Documents/CS6735/Code/test-resources/letter-recognition.data.1", ",", false, 0);
-        DataProcessor processor6 = new DataProcessor("/Users/olanre/Documents/CS6735/Code/test-resources/letter-recognition.data.2", ",", false, 0);
+        DataProcessor processor5 = new DataProcessor("/Users/olanre/Documents/CS6735/Code/test-resources/letter-recognition.data.backup", ",", false, 0);
+        //DataProcessor processor6 = new DataProcessor("/Users/olanre/Documents/CS6735/Code/test-resources/letter-recognition.data.2", ",", false, 0);
 
         ArrayList<DataProcessor> processors = new ArrayList<>();
         processors.add(processor1);
@@ -33,11 +33,11 @@ public class Experiment {
 
         ArrayList<MLAlgorithm> algorithms = new ArrayList<>();
 
-        algorithms.add(new NaiveBayes());
-        algorithms.add(new NaiveBayesBagging(10));
-        algorithms.add(new ID3Learner(0.0));
+        //algorithms.add(new NaiveBayes());
+        //algorithms.add(new NaiveBayesBagging(10));
+        //algorithms.add(new ID3Learner(0.0));
         algorithms.add(new RandomForest(0.5, 10));
-        algorithms.add(new AdaBoost(10));
+        //algorithms.add(new AdaBoost(10));
         //algorithms.add(new KNearestNeighbour(2));
         //algorithms.add(new KNearestNeighbour(1));
 

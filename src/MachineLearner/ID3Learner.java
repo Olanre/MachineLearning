@@ -248,7 +248,7 @@ public class ID3Learner implements DecisionTree, MLAlgorithm {
             ArrayList<Node> children = tree.getChildren();
             for(int i = 0; i < children.size() ; i ++){
                 tree = children.get(i);
-                if( cols.get(index).equals(tree.getBranch())){
+                if( cols.get(index) != null && cols.get(index).equals(tree.getBranch())){
                     //cols.remove(index);
                     classification = Classify(cols, tree);
                     break;
